@@ -20,6 +20,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func touchPauseButton(sender: UIButton) {
 
+    }
+    
+    @IBAction func touchTopButton(sender: UIButton) {
+
+    }
+    
+    @IBAction func touchBottomButton(sender: UIButton) {
+
+    }
+    
 }
 
