@@ -18,8 +18,11 @@ class ViewController: UIViewController {
     var bottomSecondsRemaining = 600
     
     @IBOutlet var topButton: UIButton
-    
     @IBOutlet var bottomButton: UIButton
+    
+    @IBOutlet var topLabel: UILabel
+    @IBOutlet var bottomLabel: UILabel
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +54,13 @@ class ViewController: UIViewController {
     func onClockTick() {
         topSecondsRemaining -= 1
         bottomSecondsRemaining -= 1
+        topLabel.text = secondsToString(topSecondsRemaining)
+        bottomLabel.text = secondsToString(bottomSecondsRemaining)
     }
+
+    func secondsToString(seconds: Int) -> String {
+        return "\(seconds/60):\(seconds % 60)"
+    }
+    
 }
 
