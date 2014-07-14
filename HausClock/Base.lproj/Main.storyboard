@@ -16,16 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-QQ-Z4W">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="238"/>
-                                <color key="backgroundColor" red="0.25098039220000001" green="0.40000000000000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Top Time">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
-                                </variation>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NB-iw-3gC">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="238"/>
                                 <color key="backgroundColor" red="0.49803921569999998" green="0.79607843140000001" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,16 +26,37 @@
                                     <rect key="frame" x="0.0" y="284" width="320" height="284"/>
                                 </variation>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-QQ-Z4W">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="238"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Top Time">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zC-Qw-67g">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" backgroundImage="pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="104" y="226" width="113" height="112"/>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="0NB-iw-3gC"/>
+                                <exclude reference="4zC-Qw-67g"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="0NB-iw-3gC"/>
+                                <include reference="4zC-Qw-67g"/>
                             </mask>
                         </variation>
                     </view>
@@ -54,4 +65,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="pause" width="107" height="107"/>
+    </resources>
 </document>
