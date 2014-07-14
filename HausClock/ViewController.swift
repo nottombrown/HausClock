@@ -9,7 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-                            
+    
+    let blackColor = UIColor.blackColor()
+    let whiteColor = UIColor.whiteColor()
+    let blueColor = UIColor(rgba: "#91c4c5")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,12 +29,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchTopButton(sender: UIButton) {
-
+        sender.backgroundColor = blueColor
     }
     
     @IBAction func touchBottomButton(sender: UIButton) {
-
+        sender.backgroundColor = blackColor
     }
     
+    func setSideToActive(UIButton) {
+        
+    }
 }
 

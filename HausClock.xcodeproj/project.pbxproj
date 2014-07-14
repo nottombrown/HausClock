@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		825C27B919738200008D8331 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C27B819738200008D8331 /* UIColorExtension.swift */; };
 		82D156951973665400DD9ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D156941973665400DD9ABD /* AppDelegate.swift */; };
 		82D156971973665400DD9ABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D156961973665400DD9ABD /* ViewController.swift */; };
 		82D1569A1973665400DD9ABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82D156981973665400DD9ABD /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		825C27B819738200008D8331 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		82D1568F1973665400DD9ABD /* HausClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HausClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82D156931973665400DD9ABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82D156941973665400DD9ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				82D156941973665400DD9ABD /* AppDelegate.swift */,
 				82D156961973665400DD9ABD /* ViewController.swift */,
+				825C27B819738200008D8331 /* UIColorExtension.swift */,
 				82D156981973665400DD9ABD /* Main.storyboard */,
 				82D1569B1973665400DD9ABD /* Images.xcassets */,
 				82D156921973665400DD9ABD /* Supporting Files */,
@@ -210,6 +213,7 @@
 			files = (
 				82D156971973665400DD9ABD /* ViewController.swift in Sources */,
 				82D156951973665400DD9ABD /* AppDelegate.swift in Sources */,
+				825C27B919738200008D8331 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +399,7 @@
 				82D156AD1973665400DD9ABD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		82D156AE1973665400DD9ABD /* Build configuration list for PBXNativeTarget "HausClockTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +408,7 @@
 				82D156B01973665400DD9ABD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
