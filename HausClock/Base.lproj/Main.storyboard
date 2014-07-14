@@ -70,6 +70,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="bottomButton" destination="0NB-iw-3gC" id="aDN-QI-Vim"/>
+                        <outlet property="topButton" destination="gFt-QQ-Z4W" id="Aug-03-r8c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

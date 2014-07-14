@@ -14,8 +14,16 @@ class ViewController: UIViewController {
     let whiteColor = UIColor.whiteColor()
     let blueColor = UIColor(rgba: "#91c4c5")
     
+    var topSecondsRemaining = 600
+    var bottomSecondsRemaining = 600
+    
+    @IBOutlet var topButton: UIButton
+    
+    @IBOutlet var bottomButton: UIButton
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -38,6 +46,11 @@ class ViewController: UIViewController {
     
     func setSideToActive(UIButton) {
         
+    }
+    
+    func onClockTick() {
+        topSecondsRemaining -= 1
+        bottomSecondsRemaining -= 1
     }
 }
 
