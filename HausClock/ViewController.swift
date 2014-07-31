@@ -12,16 +12,16 @@ class ViewController: UIViewController {
     
     let blackColor = UIColor.blackColor()
     let whiteColor = UIColor.whiteColor()
-    let blueColor = UIColor(rgba: "#91c4c5")
+    let blueColor = "#91c4c5".UIColor
     
     var topSecondsRemaining = 600
     var bottomSecondsRemaining = 600
     
-    @IBOutlet var topButton: UIButton
-    @IBOutlet var bottomButton: UIButton
+    @IBOutlet var topButton: UIButton!
+    @IBOutlet var bottomButton: UIButton!
     
-    @IBOutlet var topLabel: UILabel
-    @IBOutlet var bottomLabel: UILabel
+    @IBOutlet var topLabel: UILabel!
+    @IBOutlet var bottomLabel: UILabel!
     
     
     override func viewDidLoad() {
