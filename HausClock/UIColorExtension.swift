@@ -99,14 +99,6 @@ extension String {
         return UIKit.UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
     
-    public func __conversion () -> UIKit.UIColor {
-        return self.UIColor(1)
-    }
-    
-    public func __conversion () -> CGColorRef {
-        return self.CGColor(1)
-    }
-    
     private subscript (i: Int) -> String {
         return String(Array(self)[i])
     }
