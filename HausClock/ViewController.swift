@@ -63,6 +63,8 @@ class ViewController: UIViewController {
     
     func setPlayerToActive(player: Player) {
         activePlayer = player
+        // TODO: Is there a clean way to just listen to the activePlayer switching?
+        
         switch activePlayer {
         case .Top:
             topButton.backgroundColor = blueColor
@@ -91,8 +93,11 @@ class ViewController: UIViewController {
         bottomLabel.text = secondsToString(bottomSecondsRemaining)
     }
 
-    func secondsToString(seconds: Int) -> String {
-        return "\(seconds/60):\(seconds % 60)"
+    func secondsToString(totalSeconds: Int) -> String {
+        let minutes = totalSeconds/60
+        let seconds = totalSeconds % 60
+        let spacer = seconds < 10 ? "0" : ""        
+        return "\(minutes):\(spacer)\(seconds)"
     }
     
 }

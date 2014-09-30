@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="103"/>
-                                    <rect key="frame" x="14" y="64" width="292" height="129"/>
+                                    <rect key="frame" x="-45" y="65" width="410" height="129"/>
                                 </variation>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaE-V2-jow">
@@ -72,7 +72,7 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="103"/>
-                                    <rect key="frame" x="14" y="364" width="293" height="124"/>
+                                    <rect key="frame" x="-45" y="364" width="410" height="124"/>
                                 </variation>
                             </label>
                         </subviews>
