@@ -16,6 +16,7 @@ enum Player {
 enum GameState {
     case Active
     case Paused
+    case Finished
 }
 
 
@@ -24,6 +25,7 @@ class ViewController: UIViewController {
     let blackColor = UIColor.blackColor()
     let whiteColor = UIColor.whiteColor()
     let blueColor = "#91c4c5".UIColor
+    let redColor = "#ff0000".UIColor //TODO: Change this
     
     var topSecondsRemaining = 600
     var bottomSecondsRemaining = 600
@@ -85,17 +87,32 @@ class ViewController: UIViewController {
     }
     
     func onClockTick() {
-        if gameState == .Paused {
-            return
+        switch gameState {
+        case .Active:
+            decrementActivePlayer()
+        case .Finished:
+            decrementActivePlayer()
+        case .Paused:
+            println("pass") // TODO: is there a "pass" or some such?
         }
-        
+    }
+    
+    // Decrements the active player. If the player has lost, changes the player state
+    func decrementActivePlayer() {
         switch activePlayer {
         case .Top:
             topSecondsRemaining -= 1
+            if topSecondsRemaining == 0 {
+                gameState = .Finished
+            }
         case .Bottom:
             bottomSecondsRemaining -= 1
+            if topSecondsRemaining == 0 {
+                gameState = .Finished
+            }
         }
-
+        
+        
         topLabel.text = secondsToString(topSecondsRemaining)
         bottomLabel.text = secondsToString(bottomSecondsRemaining)
     }
