@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func touchPauseButton(sender: UIButton) {
-
+        gameState = .Paused
     }
     
     @IBAction func touchTopButton(sender: UIButton) {
@@ -65,6 +65,7 @@ class ViewController: UIViewController {
     
     func setPlayerToActive(player: Player) {
         activePlayer = player
+        gameState = .Active
         // TODO: Is there a clean way to just listen to the activePlayer switching?
         
         switch activePlayer {
@@ -84,6 +85,10 @@ class ViewController: UIViewController {
     }
     
     func onClockTick() {
+        if gameState == .Paused {
+            return
+        }
+        
         switch activePlayer {
         case .Top:
             topSecondsRemaining -= 1
