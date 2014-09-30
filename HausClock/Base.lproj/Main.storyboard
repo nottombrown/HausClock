@@ -43,18 +43,6 @@
                                     <action selector="touchBottomButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Erf-cw-Mfo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zC-Qw-67g">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" backgroundImage="pause">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="104" y="226" width="113" height="112"/>
-                                </variation>
-                                <connections>
-                                    <action selector="touchPauseButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wwz-lK-4A3"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYZ-1g-ao7">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
@@ -75,22 +63,34 @@
                                     <rect key="frame" x="-45" y="364" width="410" height="124"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zC-Qw-67g">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" backgroundImage="pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="104" y="227" width="113" height="112"/>
+                                </variation>
+                                <connections>
+                                    <action selector="touchPauseButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wwz-lK-4A3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="0NB-iw-3gC"/>
-                                <exclude reference="4zC-Qw-67g"/>
                                 <exclude reference="IYZ-1g-ao7"/>
                                 <exclude reference="CaE-V2-jow"/>
+                                <exclude reference="4zC-Qw-67g"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="0NB-iw-3gC"/>
-                                <include reference="4zC-Qw-67g"/>
                                 <include reference="IYZ-1g-ao7"/>
                                 <include reference="CaE-V2-jow"/>
+                                <include reference="4zC-Qw-67g"/>
                             </mask>
                         </variation>
                     </view>

@@ -40,6 +40,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topLabel.transform = CGAffineTransformRotate(CGAffineTransformIdentity, 3.14159) // TODO: How do I get pi?
+
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -96,7 +98,7 @@ class ViewController: UIViewController {
     func secondsToString(totalSeconds: Int) -> String {
         let minutes = totalSeconds/60
         let seconds = totalSeconds % 60
-        let spacer = seconds < 10 ? "0" : ""        
+        let spacer = seconds < 10 ? "0" : ""
         return "\(minutes):\(spacer)\(seconds)"
     }
     
