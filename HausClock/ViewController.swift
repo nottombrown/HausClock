@@ -8,6 +8,17 @@
 
 import UIKit
 
+enum Player {
+    case Top
+    case Bottom
+}
+
+enum GameState {
+    case Active
+    case Paused
+}
+
+
 class ViewController: UIViewController {
     
     let blackColor = UIColor.blackColor()
@@ -16,6 +27,9 @@ class ViewController: UIViewController {
     
     var topSecondsRemaining = 600
     var bottomSecondsRemaining = 600
+    
+    var activePlayer = Player.Bottom
+    var gameState = GameState.Paused
     
     @IBOutlet var topButton: UIButton!
     @IBOutlet var bottomButton: UIButton!
@@ -40,20 +54,39 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchTopButton(sender: UIButton) {
-        sender.backgroundColor = blueColor
+        setPlayerToActive(.Bottom)
     }
     
     @IBAction func touchBottomButton(sender: UIButton) {
-        sender.backgroundColor = blackColor
+        setPlayerToActive(.Top)
     }
     
-    func setSideToActive(UIButton) {
-        
+    func setPlayerToActive(player: Player) {
+        activePlayer = player
+        switch activePlayer {
+        case .Top:
+            topButton.backgroundColor = blueColor
+            bottomButton.backgroundColor = blackColor
+            topLabel.textColor = blackColor
+            bottomLabel.textColor = whiteColor
+            
+        case .Bottom:
+            topButton.backgroundColor = blackColor
+            bottomButton.backgroundColor = blueColor
+            bottomLabel.textColor = blackColor
+            topLabel.textColor = whiteColor
+
+        }
     }
     
     func onClockTick() {
-        topSecondsRemaining -= 1
-        bottomSecondsRemaining -= 1
+        switch activePlayer {
+        case .Top:
+            topSecondsRemaining -= 1
+        case .Bottom:
+            bottomSecondsRemaining -= 1
+        }
+
         topLabel.text = secondsToString(topSecondsRemaining)
         bottomLabel.text = secondsToString(bottomSecondsRemaining)
     }
