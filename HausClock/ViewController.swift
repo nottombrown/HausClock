@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import Darwin // For math
+
+// TODO: Where should globals live?
+let blackColor = UIColor.blackColor()
+let whiteColor = UIColor.whiteColor()
+let blueColor = "#91c4c5".UIColor
+let redColor = "#ff0000".UIColor //TODO: Change this
 
 enum PlayerPosition {
     case Top
@@ -24,45 +31,105 @@ enum GameState {
     case Finished
 }
 
+
+
+// TODO: Is there a clean way to make this a struct instead? Would rather dispose of more state
 class Player {
     let position: PlayerPosition
     var state = PlayerState.Waiting
     var secondsRemaining = 600
     
-    // I wish that classes could have an automatic initializer like a struct
-    // I wish struct instances were pass-by-value like class instances
-    init(position:PlayerPosition, state:PlayerState,secondsRemaining:Int){
+    init(position: PlayerPosition, state: PlayerState, secondsRemaining: Int) {
         self.position = position
         self.state = state
         self.secondsRemaining = secondsRemaining
     }
+    
+    // TODO: Where does one normally put formatting utility functions?
+    func secondsRemainingAsString() -> String {
+        let minutes = secondsRemaining/60
+        let seconds = secondsRemaining % 60
+        let spacer = seconds < 10 ? "0" : ""
+        return "\(minutes):\(spacer)\(seconds)"
+    }
 }
+
+
+// TODO: I want this object to listen to the
+class ClockButtonController: UIViewController {
+
+    // Not sure why this hack is required. I really don't want this method
+    // http://stackoverflow.com/questions/24036393/fatal-error-use-of-unimplemented-initializer-initcoder-for-class/24036440#24036440
+    required init(coder aDecoder: (NSCoder!))
+    {
+        super.init(coder: aDecoder)
+    }
+
+}
+
+class TopViewController: ClockButtonController {
+    @IBOutlet var button: UIButton!
+    @IBOutlet var label: UILabel!
+    
+    var player = topPlayer
+    
+    // TODO: How do I move these methods into the ClockButtonController where they belong?
+    func update() {
+        switch player.state {
+        case .Active:
+            button.backgroundColor = blueColor
+            label.textColor = blackColor
+        case .Waiting:
+            button.backgroundColor = blackColor
+            label.textColor = whiteColor
+        }
+        
+        label.text = player.secondsRemainingAsString()
+    }
+
+}
+
+class BottomViewController: ClockButtonController {
+    @IBOutlet var button: UIButton!
+    @IBOutlet var label: UILabel!
+    
+    var player = bottomPlayer
+    
+    // TODO: How do I move these methods into the ClockButtonController where they belong?
+    func update() {
+        switch player.state {
+        case .Active:
+            button.backgroundColor = blueColor
+            label.textColor = blackColor
+        case .Waiting:
+            button.backgroundColor = blackColor
+            label.textColor = whiteColor
+        }
+        
+        label.text = player.secondsRemainingAsString()
+    }
+    
+//    func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, 3.14159) // TODO: How do I get pi?
+//    }
+
+}
+
+// TODO: Where do models that are necessary for the base UIViewController live?
+var topPlayer = Player(position: .Top, state: .Waiting, secondsRemaining: 600) // TODO: Default vals?
+var bottomPlayer = Player(position: .Bottom, state: .Waiting, secondsRemaining: 600)
+
 
 class ViewController: UIViewController {
     
-    let blackColor = UIColor.blackColor()
-    let whiteColor = UIColor.whiteColor()
-    let blueColor = "#91c4c5".UIColor
-    let redColor = "#ff0000".UIColor //TODO: Change this
-
-    var players = [
-        Player(position: .Top, state: .Waiting, secondsRemaining: 600), // TODO: Default vals?
-        Player(position: .Bottom, state: .Waiting, secondsRemaining: 600)
-    ]
+    var players = [topPlayer, bottomPlayer]
     
     var gameState = GameState.Active
-    
-    @IBOutlet var topButton: UIButton!
-    @IBOutlet var bottomButton: UIButton!
-    
-    @IBOutlet var topLabel: UILabel!
-    @IBOutlet var bottomLabel: UILabel!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topLabel.transform = CGAffineTransformRotate(CGAffineTransformIdentity, 3.14159) // TODO: How do I get pi?
-
         setPlayerToActive(.Top)
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view, typically from a nib.
@@ -105,21 +172,9 @@ class ViewController: UIViewController {
         activePlayer.state = .Active
         inactivePlayer.state = .Waiting
         
-        switch position {
-        case .Top:
-            // DRY this up -> The topButton and bottomButton should listen for state changes on the player
-            topButton.backgroundColor = blueColor
-            bottomButton.backgroundColor = blackColor
-            topLabel.textColor = blackColor
-            bottomLabel.textColor = whiteColor
-            
-        case .Bottom:
-            topButton.backgroundColor = blackColor
-            bottomButton.backgroundColor = blueColor
-            bottomLabel.textColor = blackColor
-            topLabel.textColor = whiteColor
-
-        }
+        // Is there a common way to have these update whenever their players change?
+//        topViewController.update()
+//        bottomViewController.update()
     }
     
     func onClockTick() {
@@ -141,18 +196,7 @@ class ViewController: UIViewController {
             if activePlayer.secondsRemaining <= 0 {
                 gameState = .Finished
             }
-
-            topLabel.text = secondsToString(activePlayer.secondsRemaining)
-            bottomLabel.text = secondsToString(activePlayer.secondsRemaining)
         }
     }
-
-    func secondsToString(totalSeconds: Int) -> String {
-        let minutes = totalSeconds/60
-        let seconds = totalSeconds % 60
-        let spacer = seconds < 10 ? "0" : ""
-        return "\(minutes):\(spacer)\(seconds)"
-    }
-    
 }
 

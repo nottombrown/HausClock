@@ -16,19 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-QQ-Z4W">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="238"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
-                                </variation>
-                                <connections>
-                                    <action selector="touchTopButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OxT-tH-INM"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NB-iw-3gC">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="238"/>
                                 <color key="backgroundColor" red="0.56862745100000001" green="0.76862745099999996" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,6 +62,19 @@
                                     <action selector="touchPauseButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wwz-lK-4A3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-QQ-Z4W">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="238"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                                </variation>
+                                <connections>
+                                    <action selector="touchTopButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AML-Zm-jB3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -97,7 +97,6 @@
                     <connections>
                         <outlet property="bottomButton" destination="0NB-iw-3gC" id="aDN-QI-Vim"/>
                         <outlet property="bottomLabel" destination="CaE-V2-jow" id="N3b-qK-BMw"/>
-                        <outlet property="topButton" destination="gFt-QQ-Z4W" id="Aug-03-r8c"/>
                         <outlet property="topLabel" destination="IYZ-1g-ao7" id="saD-Ec-BtN"/>
                     </connections>
                 </viewController>
