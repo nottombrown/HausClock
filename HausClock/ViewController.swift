@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Darwin
 
 enum PlayerPosition {
     case Top
@@ -29,8 +30,6 @@ class Player {
     var state = PlayerState.Waiting
     var secondsRemaining = 600
     
-    // I wish that classes could have an automatic initializer like a struct
-    // I wish struct instances were pass-by-value like class instances
     init(position:PlayerPosition, state:PlayerState,secondsRemaining:Int){
         self.position = position
         self.state = state
@@ -61,7 +60,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topLabel.transform = CGAffineTransformRotate(CGAffineTransformIdentity, 3.14159) // TODO: How do I get pi?
+        topLabel.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
 
         setPlayerToActive(.Top)
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
@@ -104,11 +103,13 @@ class ViewController: UIViewController {
         
         activePlayer.state = .Active
         inactivePlayer.state = .Waiting
-        gameState = GameState.Active        
+        gameState = GameState.Active
 
         switch position {
         case .Top:
             // DRY this up -> The topButton and bottomButton should listen for state changes on the player
+            // What is the cleanest way to do this? Make another controller for each half?
+
             topButton.backgroundColor = blueColor
             bottomButton.backgroundColor = blackColor
             topLabel.textColor = blackColor
@@ -119,7 +120,6 @@ class ViewController: UIViewController {
             bottomButton.backgroundColor = blueColor
             bottomLabel.textColor = blackColor
             topLabel.textColor = whiteColor
-
         }
     }
     
@@ -154,6 +154,5 @@ class ViewController: UIViewController {
         let spacer = seconds < 10 ? "0" : ""
         return "\(minutes):\(spacer)\(seconds)"
     }
-    
 }
 
