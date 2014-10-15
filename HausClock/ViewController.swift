@@ -97,14 +97,15 @@ class ViewController: UIViewController {
     func getActivePlayer() -> Player? {
         return players.filter( { $0.state == .Active } ).first
     }
-    
+
     func setPlayerToActive(position: PlayerPosition) {
         var activePlayer = getPlayerByPosition(position)
         var inactivePlayer = getOppositePlayerByPosition(position)
         
         activePlayer.state = .Active
         inactivePlayer.state = .Waiting
-        
+        gameState = GameState.Active        
+
         switch position {
         case .Top:
             // DRY this up -> The topButton and bottomButton should listen for state changes on the player
@@ -142,8 +143,8 @@ class ViewController: UIViewController {
                 gameState = .Finished
             }
 
-            topLabel.text = secondsToString(activePlayer.secondsRemaining)
-            bottomLabel.text = secondsToString(activePlayer.secondsRemaining)
+            topLabel.text = secondsToString(getPlayerByPosition(.Top).secondsRemaining)
+            bottomLabel.text = secondsToString(getPlayerByPosition(.Bottom).secondsRemaining)
         }
     }
 
