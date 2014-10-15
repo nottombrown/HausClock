@@ -12,6 +12,16 @@ import Darwin
 enum PlayerPosition {
     case Top
     case Bottom
+
+    func opposite() -> PlayerPosition {
+        // Is there a less verbose way? This seems like a common case
+        switch self {
+        case .Top:
+            return .Bottom
+        case .Bottom:
+            return .Top
+        }
+    }
 }
 
 enum PlayerState {
@@ -50,7 +60,7 @@ class ViewController: UIViewController {
     let blackColor = UIColor.blackColor()
     let whiteColor = UIColor.whiteColor()
     let blueColor = "#91c4c5".UIColor
-    let redColor = "#ff0000".UIColor //TODO: Change this
+    let redColor = "#ff0000".UIColor
 
     var players = [
         Player(position: .Top, state: .Waiting, secondsRemaining: 600), // TODO: Default vals?
@@ -72,7 +82,6 @@ class ViewController: UIViewController {
 
         setPlayerToActive(.Top)
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,11 +104,6 @@ class ViewController: UIViewController {
     func getPlayerByPosition(position: PlayerPosition) -> Player {
         return players.filter( { $0.position == position } ).first!
     }
-
-    func getOppositePlayerByPosition(position: PlayerPosition) -> Player {
-        // DRY this up, create PlayerPosition#Opposite
-        return players.filter( { $0.position != position } ).first!
-    }
     
     func getActivePlayer() -> Player? {
         return players.filter( { $0.state == .Active } ).first
@@ -107,11 +111,11 @@ class ViewController: UIViewController {
 
     func setPlayerToActive(position: PlayerPosition) {
         var activePlayer = getPlayerByPosition(position)
-        var inactivePlayer = getOppositePlayerByPosition(position)
+        var inactivePlayer = getPlayerByPosition(position.opposite())
         
         activePlayer.state = .Active
         inactivePlayer.state = .Waiting
-        gameState = GameState.Active
+        gameState = .Active
 
         switch position {
         case .Top:
@@ -138,7 +142,7 @@ class ViewController: UIViewController {
         case .Finished:
             decrementActivePlayer()
         case .Paused:
-            println("pass") // TODO: is there a "pass" or some such?
+            break // Do nothing
         }
     }
     
