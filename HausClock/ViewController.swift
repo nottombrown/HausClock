@@ -9,6 +9,9 @@
 import UIKit
 import Darwin
 
+
+// @Jack where do models and enums like to live?
+
 enum PlayerPosition {
     case Top
     case Bottom
@@ -54,6 +57,8 @@ class Player {
         return "\(minutes):\(spacer)\(seconds)"
     }
 }
+
+
 
 class ViewController: UIViewController {
     
@@ -117,11 +122,14 @@ class ViewController: UIViewController {
         inactivePlayer.state = .Waiting
         gameState = .Active
 
+
+        // DRY this up -> The topButton and bottomButton should listen for state changes on the player
+        // @Jack: What is the cleanest way to do this?
+        // Make another controller for each half?
+        // Maybe also make the Player model observable with: https://github.com/slazyk/Observable-Swift
+
         switch position {
         case .Top:
-            // DRY this up -> The topButton and bottomButton should listen for state changes on the player
-            // What is the cleanest way to do this? Make another controller for each half?
-
             topButton.backgroundColor = blueColor
             bottomButton.backgroundColor = blackColor
             topLabel.textColor = blackColor
