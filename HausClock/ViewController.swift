@@ -35,6 +35,14 @@ class Player {
         self.state = state
         self.secondsRemaining = secondsRemaining
     }
+
+    // TODO: Where does one normally put formatting utility functions?
+    func secondsRemainingAsString() -> String {
+        let minutes = secondsRemaining/60
+        let seconds = secondsRemaining % 60
+        let spacer = seconds < 10 ? "0" : ""
+        return "\(minutes):\(spacer)\(seconds)"
+    }
 }
 
 class ViewController: UIViewController {
@@ -143,16 +151,10 @@ class ViewController: UIViewController {
                 gameState = .Finished
             }
 
-            topLabel.text = secondsToString(getPlayerByPosition(.Top).secondsRemaining)
-            bottomLabel.text = secondsToString(getPlayerByPosition(.Bottom).secondsRemaining)
+            // TODO: These should be DRYed up and put in a class
+            topLabel.text = getPlayerByPosition(.Top).secondsRemainingAsString()
+            bottomLabel.text = getPlayerByPosition(.Bottom).secondsRemainingAsString()
         }
-    }
-
-    func secondsToString(totalSeconds: Int) -> String {
-        let minutes = totalSeconds/60
-        let seconds = totalSeconds % 60
-        let spacer = seconds < 10 ? "0" : ""
-        return "\(minutes):\(spacer)\(seconds)"
     }
 }
 
