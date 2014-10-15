@@ -8,9 +8,14 @@
 
 import UIKit
 
-enum Player {
+enum PlayerPosition {
     case Top
     case Bottom
+}
+
+enum PlayerState {
+    case Active
+    case Waiting
 }
 
 enum GameState {
@@ -19,6 +24,19 @@ enum GameState {
     case Finished
 }
 
+class Player {
+    let position: PlayerPosition
+    var state = PlayerState.Waiting
+    var secondsRemaining = 600
+    
+    // I wish that classes could have an automatic initializer like a struct
+    // I wish struct instances were pass-by-value like class instances
+    init(position:PlayerPosition, state:PlayerState,secondsRemaining:Int){
+        self.position = position
+        self.state = state
+        self.secondsRemaining = secondsRemaining
+    }
+}
 
 class ViewController: UIViewController {
     
@@ -26,12 +44,13 @@ class ViewController: UIViewController {
     let whiteColor = UIColor.whiteColor()
     let blueColor = "#91c4c5".UIColor
     let redColor = "#ff0000".UIColor //TODO: Change this
+
+    var players = [
+        Player(position: .Top, state: .Waiting, secondsRemaining: 600), // TODO: Default vals?
+        Player(position: .Bottom, state: .Waiting, secondsRemaining: 600)
+    ]
     
-    var topSecondsRemaining = 600
-    var bottomSecondsRemaining = 600
-    
-    var activePlayer = Player.Bottom
-    var gameState = GameState.Paused
+    var gameState = GameState.Active
     
     @IBOutlet var topButton: UIButton!
     @IBOutlet var bottomButton: UIButton!
@@ -44,6 +63,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         topLabel.transform = CGAffineTransformRotate(CGAffineTransformIdentity, 3.14159) // TODO: How do I get pi?
 
+        setPlayerToActive(.Top)
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -65,13 +85,29 @@ class ViewController: UIViewController {
         setPlayerToActive(.Top)
     }
     
-    func setPlayerToActive(player: Player) {
-        activePlayer = player
-        gameState = .Active
-        // TODO: Is there a clean way to just listen to the activePlayer switching?
+    func getPlayerByPosition(position: PlayerPosition) -> Player {
+        return players.filter( { $0.position == position } ).first!
+    }
+
+    func getOppositePlayerByPosition(position: PlayerPosition) -> Player {
+        // DRY this up, create PlayerPosition#Opposite
+        return players.filter( { $0.position != position } ).first!
+    }
+    
+    func getActivePlayer() -> Player? {
+        return players.filter( { $0.state == .Active } ).first
+    }
+    
+    func setPlayerToActive(position: PlayerPosition) {
+        var activePlayer = getPlayerByPosition(position)
+        var inactivePlayer = getOppositePlayerByPosition(position)
         
-        switch activePlayer {
+        activePlayer.state = .Active
+        inactivePlayer.state = .Waiting
+        
+        switch position {
         case .Top:
+            // DRY this up -> The topButton and bottomButton should listen for state changes on the player
             topButton.backgroundColor = blueColor
             bottomButton.backgroundColor = blackColor
             topLabel.textColor = blackColor
@@ -97,24 +133,18 @@ class ViewController: UIViewController {
         }
     }
     
-    // Decrements the active player. If the player has lost, changes the player state
+    // Decrements the active player if one is available. If the player has lost, changes the player state
     func decrementActivePlayer() {
-        switch activePlayer {
-        case .Top:
-            topSecondsRemaining -= 1
-            if topSecondsRemaining == 0 {
+        if var activePlayer = getActivePlayer() {
+            activePlayer.secondsRemaining -= 1
+            
+            if activePlayer.secondsRemaining <= 0 {
                 gameState = .Finished
             }
-        case .Bottom:
-            bottomSecondsRemaining -= 1
-            if topSecondsRemaining == 0 {
-                gameState = .Finished
-            }
+
+            topLabel.text = secondsToString(activePlayer.secondsRemaining)
+            bottomLabel.text = secondsToString(activePlayer.secondsRemaining)
         }
-        
-        
-        topLabel.text = secondsToString(topSecondsRemaining)
-        bottomLabel.text = secondsToString(bottomSecondsRemaining)
     }
 
     func secondsToString(totalSeconds: Int) -> String {
