@@ -12,4 +12,9 @@ import UIKit
 @IBDesignable
 class TimeView: UIView {
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        println("HEALTHY2")
+    }
 }
