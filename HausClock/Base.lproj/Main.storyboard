@@ -27,7 +27,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="298"/>
                                         </variation>
                                         <connections>
                                             <action selector="touchBottomButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Erf-cw-Mfo"/>
@@ -40,7 +40,7 @@
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="103"/>
-                                            <rect key="frame" x="-45" y="63" width="410" height="124"/>
+                                            <rect key="frame" x="-45" y="87" width="410" height="124"/>
                                         </variation>
                                     </label>
                                 </subviews>
@@ -52,7 +52,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="276" width="320" height="284"/>
+                                    <rect key="frame" x="0.0" y="276" width="320" height="298"/>
                                     <mask key="subviews">
                                         <include reference="0NB-iw-3gC"/>
                                         <include reference="CaE-V2-jow"/>
@@ -62,14 +62,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXj-e3-wTM" customClass="TimeView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-QQ-Z4W">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-QQ-Z4W">
                                         <rect key="frame" x="0.0" y="0.0" width="480" height="238"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="0.0" y="8" width="320" height="284"/>
+                                            <rect key="frame" x="0.0" y="7" width="320" height="284"/>
                                         </variation>
                                         <connections>
                                             <action selector="touchTopButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OxT-tH-INM"/>
