@@ -59,7 +59,6 @@ class Player {
 }
 
 
-
 class ViewController: UIViewController {
     
     let blackColor = UIColor.blackColor()
