@@ -52,12 +52,16 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="276" width="320" height="298"/>
+                                    <rect key="frame" x="0.0" y="276" width="384" height="298"/>
                                     <mask key="subviews">
                                         <include reference="0NB-iw-3gC"/>
                                         <include reference="CaE-V2-jow"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="button" destination="0NB-iw-3gC" id="xmG-7P-ep9"/>
+                                    <outlet property="label" destination="CaE-V2-jow" id="TWB-kp-19y"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXj-e3-wTM" customClass="TimeView" customModule="HausClock" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -94,12 +98,16 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="-8" width="320" height="284"/>
+                                    <rect key="frame" x="0.0" y="-8" width="439" height="284"/>
                                     <mask key="subviews">
                                         <include reference="gFt-QQ-Z4W"/>
                                         <include reference="IYZ-1g-ao7"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="button" destination="gFt-QQ-Z4W" id="mKs-Dr-i78"/>
+                                    <outlet property="label" destination="IYZ-1g-ao7" id="ekc-QT-Hk4"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zC-Qw-67g">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>

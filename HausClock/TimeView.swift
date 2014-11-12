@@ -11,10 +11,14 @@ import UIKit
 
 @IBDesignable
 class TimeView: UIView {
+    @IBOutlet var button: UIButton!
+    @IBOutlet var label: UILabel!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func updateWithViewModel(){
         
-        println("HEALTHY2")
     }
 }
