@@ -15,10 +15,11 @@ class TimeView: UIView {
     @IBOutlet var label: UILabel!
     
     required init(coder aDecoder: NSCoder) {
+        println("init timeview")
         super.init(coder: aDecoder)
     }
     
     func updateWithViewModel(){
-        
+        println("update with view model")
     }
 }

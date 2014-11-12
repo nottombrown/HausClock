@@ -85,6 +85,7 @@ class ViewController: UIViewController {
         topLabel.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
         
         setPlayerToActive(.Top)
+        println("ViewDidLoad")
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
     }
 
