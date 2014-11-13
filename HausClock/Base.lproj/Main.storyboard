@@ -121,6 +121,51 @@
                                     <action selector="touchPauseButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wwz-lK-4A3"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8T-QB-ikT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="settings-circle" translatesAutoresizingMaskIntoConstraints="NO" id="Rux-06-Ruh">
+                                        <rect key="frame" x="0.0" y="-243" width="243" height="243"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="28" y="39" width="243" height="243"/>
+                                        </variation>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lj6-gV-1uQ">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" backgroundImage="resume">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="37" y="48" width="225" height="225"/>
+                                        </variation>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0P-oJ-0SQ">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" backgroundImage="reset">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="114" y="207" width="70" height="22"/>
+                                        </variation>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="Rux-06-Ruh"/>
+                                        <exclude reference="Lj6-gV-1uQ"/>
+                                        <exclude reference="N0P-oJ-0SQ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="100" y="568" width="355" height="400"/>
+                                    <mask key="subviews">
+                                        <include reference="Rux-06-Ruh"/>
+                                        <include reference="Lj6-gV-1uQ"/>
+                                        <include reference="N0P-oJ-0SQ"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -128,6 +173,7 @@
                                 <exclude reference="Ctr-QT-iPN"/>
                                 <exclude reference="YXj-e3-wTM"/>
                                 <exclude reference="4zC-Qw-67g"/>
+                                <exclude reference="K8T-QB-ikT"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -135,6 +181,7 @@
                                 <include reference="Ctr-QT-iPN"/>
                                 <include reference="YXj-e3-wTM"/>
                                 <include reference="4zC-Qw-67g"/>
+                                <include reference="K8T-QB-ikT"/>
                             </mask>
                         </variation>
                     </view>
@@ -149,5 +196,8 @@
     </scenes>
     <resources>
         <image name="pause" width="107" height="107"/>
+        <image name="reset" width="70" height="22"/>
+        <image name="resume" width="225" height="225"/>
+        <image name="settings-circle" width="243" height="243"/>
     </resources>
 </document>
