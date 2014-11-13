@@ -26,13 +26,18 @@ class TimeView: UIView {
     let redColor = "#ff0000".UIColor
     
     func updateWithViewModel(player: Player){
+        
+        // Set colors
         switch player.state {
         case .Active:
-            button.backgroundColor = blackColor
-            label.textColor = whiteColor
-        case .Waiting:
             button.backgroundColor = blueColor
             label.textColor = blackColor
+        case .Waiting:
+            button.backgroundColor = blackColor
+            label.textColor = whiteColor
         }
+        
+        // Set seconds remaining
+        label.text = player.secondsRemainingAsString()
     }
 }

@@ -31,7 +31,6 @@ enum PlayerState {
     case Waiting
 }
 
-
 enum GameState {
     case Active
     case Paused
@@ -65,23 +64,22 @@ class ViewController: UIViewController {
     ]
     
     var gameState = GameState.Active
-    
-    @IBOutlet weak var topTimeView: TimeView!
-    @IBOutlet weak var bottomTimeView: TimeView!
-    
+
     @IBOutlet var topButton: UIButton!
     @IBOutlet var bottomButton: UIButton!
     
     @IBOutlet var topLabel: UILabel!
     @IBOutlet var bottomLabel: UILabel!
     
+    @IBOutlet weak var topTimeView: TimeView!
+    @IBOutlet weak var bottomTimeView: TimeView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         topLabel.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
         
         setPlayerToActive(.Top)
-        println("ViewDidLoad")
+        
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
     }
 
@@ -118,12 +116,10 @@ class ViewController: UIViewController {
         inactivePlayer.state = .Waiting
         gameState = .Active
 
-
-        // DRY this up -> The topButton and bottomButton should listen for state changes on the player
-        // @Jack: What is the cleanest way to do this?
-        // Make another controller for each half?
-        // Maybe also make the Player model observable with: https://github.com/slazyk/Observable-Swift
-
+        updateTimeViews()
+    }
+    
+    func updateTimeViews() {
         topTimeView.updateWithViewModel(getPlayerByPosition(.Top))
         bottomTimeView.updateWithViewModel(getPlayerByPosition(.Bottom))
     }
@@ -148,9 +144,7 @@ class ViewController: UIViewController {
                 gameState = .Finished
             }
 
-            // TODO: These should be DRYed up and put in a class
-            topLabel.text = getPlayerByPosition(.Top).secondsRemainingAsString()
-            bottomLabel.text = getPlayerByPosition(.Bottom).secondsRemainingAsString()
+            updateTimeViews()
         }
     }
 }
