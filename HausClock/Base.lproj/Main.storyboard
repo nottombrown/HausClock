@@ -141,8 +141,10 @@
                     <connections>
                         <outlet property="bottomButton" destination="0NB-iw-3gC" id="aDN-QI-Vim"/>
                         <outlet property="bottomLabel" destination="CaE-V2-jow" id="N3b-qK-BMw"/>
+                        <outlet property="bottomTimeView" destination="YXj-e3-wTM" id="IJa-Jv-mv1"/>
                         <outlet property="topButton" destination="gFt-QQ-Z4W" id="Aug-03-r8c"/>
                         <outlet property="topLabel" destination="IYZ-1g-ao7" id="saD-Ec-BtN"/>
+                        <outlet property="topTimeView" destination="Ctr-QT-iPN" id="4u2-CT-xXY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

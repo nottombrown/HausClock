@@ -19,7 +19,20 @@ class TimeView: UIView {
         super.init(coder: aDecoder)
     }
     
-    func updateWithViewModel(){
-        println("update with view model")
+    // Colors
+    let blackColor = UIColor.blackColor()
+    let whiteColor = UIColor.whiteColor()
+    let blueColor = "#91c4c5".UIColor
+    let redColor = "#ff0000".UIColor
+    
+    func updateWithViewModel(player: Player){
+        switch player.state {
+        case .Active:
+            button.backgroundColor = blackColor
+            label.textColor = whiteColor
+        case .Waiting:
+            button.backgroundColor = blueColor
+            label.textColor = blackColor
+        }
     }
 }

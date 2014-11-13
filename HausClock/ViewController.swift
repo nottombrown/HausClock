@@ -9,7 +9,6 @@
 import UIKit
 import Darwin
 
-
 // @Jack where do models and enums like to live?
 
 enum PlayerPosition {
@@ -31,6 +30,7 @@ enum PlayerState {
     case Active
     case Waiting
 }
+
 
 enum GameState {
     case Active
@@ -58,20 +58,16 @@ class Player {
     }
 }
 
-
 class ViewController: UIViewController {
-    
-    let blackColor = UIColor.blackColor()
-    let whiteColor = UIColor.whiteColor()
-    let blueColor = "#91c4c5".UIColor
-    let redColor = "#ff0000".UIColor
-
     var players = [
         Player(position: .Top, state: .Waiting, secondsRemaining: 600), // TODO: Default vals?
         Player(position: .Bottom, state: .Waiting, secondsRemaining: 600)
     ]
     
     var gameState = GameState.Active
+    
+    @IBOutlet weak var topTimeView: TimeView!
+    @IBOutlet weak var bottomTimeView: TimeView!
     
     @IBOutlet var topButton: UIButton!
     @IBOutlet var bottomButton: UIButton!
@@ -128,19 +124,8 @@ class ViewController: UIViewController {
         // Make another controller for each half?
         // Maybe also make the Player model observable with: https://github.com/slazyk/Observable-Swift
 
-        switch position {
-        case .Top:
-            topButton.backgroundColor = blueColor
-            bottomButton.backgroundColor = blackColor
-            topLabel.textColor = blackColor
-            bottomLabel.textColor = whiteColor
-            
-        case .Bottom:
-            topButton.backgroundColor = blackColor
-            bottomButton.backgroundColor = blueColor
-            bottomLabel.textColor = blackColor
-            topLabel.textColor = whiteColor
-        }
+        topTimeView.updateWithViewModel(getPlayerByPosition(.Top))
+        bottomTimeView.updateWithViewModel(getPlayerByPosition(.Bottom))
     }
     
     func onClockTick() {
