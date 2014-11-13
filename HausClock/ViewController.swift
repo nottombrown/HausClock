@@ -76,6 +76,10 @@ class ViewController: UIViewController {
         
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
     }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -137,7 +141,6 @@ class ViewController: UIViewController {
             if activePlayer.secondsRemaining <= 0 {
                 gameState = .Finished
             }
-
             updateTimeViews()
         }
     }
