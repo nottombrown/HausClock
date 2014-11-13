@@ -64,19 +64,13 @@ class ViewController: UIViewController {
     ]
     
     var gameState = GameState.Active
-
-    @IBOutlet var topButton: UIButton!
-    @IBOutlet var bottomButton: UIButton!
-    
-    @IBOutlet var topLabel: UILabel!
-    @IBOutlet var bottomLabel: UILabel!
     
     @IBOutlet weak var topTimeView: TimeView!
     @IBOutlet weak var bottomTimeView: TimeView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topLabel.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
+        topTimeView.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
         
         setPlayerToActive(.Top)
         
