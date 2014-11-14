@@ -130,18 +130,6 @@
                                             <rect key="frame" x="28" y="33" width="243" height="243"/>
                                         </variation>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0P-oJ-0SQ" userLabel="Reset Button">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" backgroundImage="reset">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="114" y="207" width="70" height="22"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="touchResetButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9G9-Id-nb5"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lj6-gV-1uQ" userLabel="Resume Button">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" backgroundImage="resume">
@@ -154,21 +142,33 @@
                                             <action selector="touchResumeButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LZS-gZ-V30"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0P-oJ-0SQ" userLabel="Reset Button">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" backgroundImage="reset">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="114" y="207" width="70" height="22"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="touchResetButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9G9-Id-nb5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="Rux-06-Ruh"/>
-                                        <exclude reference="N0P-oJ-0SQ"/>
                                         <exclude reference="Lj6-gV-1uQ"/>
+                                        <exclude reference="N0P-oJ-0SQ"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="126" width="355" height="400"/>
                                     <mask key="subviews">
                                         <include reference="Rux-06-Ruh"/>
-                                        <include reference="N0P-oJ-0SQ"/>
                                         <include reference="Lj6-gV-1uQ"/>
+                                        <include reference="N0P-oJ-0SQ"/>
                                     </mask>
                                 </variation>
                             </view>

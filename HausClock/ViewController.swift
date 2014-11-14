@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         Player(position: .Bottom, state: .Waiting, secondsRemaining: 600)
     ]
     
-    var gameState = GameState.Active
+    var gameState = GameState.Paused
     
     @IBOutlet weak var pausedView: PausedView!
     @IBOutlet weak var topTimeView: TimeView!
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         topTimeView.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
         
-        setPlayerToActive(.Top)
+        resetGameState()
         
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
     }
@@ -82,6 +82,16 @@ class ViewController: UIViewController {
         return true
     }
 
+    func resetGameState() {
+        for player in players {
+            player.secondsRemaining = 600
+        }
+        
+        setPlayerToActive(.Top)
+        gameState = .Paused
+        println("reset")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -107,8 +117,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func touchResetButton(sender: AnyObject) {
+        resetGameState()
         pausedView.hide()
-        // TODO: Reset game state
     }
     
     func getPlayerByPosition(position: PlayerPosition) -> Player {
