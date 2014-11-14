@@ -148,7 +148,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="114" y="207" width="70" height="22"/>
+                                            <rect key="frame" x="41" y="182" width="217" height="85"/>
                                         </variation>
                                         <connections>
                                             <action selector="touchResetButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9G9-Id-nb5"/>
@@ -203,7 +203,7 @@
     </scenes>
     <resources>
         <image name="pause" width="107" height="107"/>
-        <image name="reset" width="70" height="22"/>
+        <image name="reset" width="219" height="85"/>
         <image name="resume" width="225" height="225"/>
         <image name="settings-circle" width="243" height="243"/>
     </resources>
