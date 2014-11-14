@@ -40,7 +40,7 @@
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="103"/>
-                                            <rect key="frame" x="-45" y="87" width="410" height="124"/>
+                                            <rect key="frame" x="-45" y="85" width="410" height="124"/>
                                         </variation>
                                     </label>
                                 </subviews>
@@ -86,7 +86,7 @@
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="103"/>
-                                            <rect key="frame" x="-51" y="72" width="410" height="129"/>
+                                            <rect key="frame" x="-51" y="82" width="410" height="129"/>
                                         </variation>
                                     </label>
                                 </subviews>
@@ -127,7 +127,7 @@
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="settings-circle" translatesAutoresizingMaskIntoConstraints="NO" id="Rux-06-Ruh">
                                         <rect key="frame" x="0.0" y="-243" width="243" height="243"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="28" y="39" width="243" height="243"/>
+                                            <rect key="frame" x="28" y="33" width="243" height="243"/>
                                         </variation>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lj6-gV-1uQ">
@@ -136,7 +136,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="37" y="48" width="225" height="225"/>
+                                            <rect key="frame" x="37" y="43" width="225" height="225"/>
                                         </variation>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0P-oJ-0SQ">
