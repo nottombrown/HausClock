@@ -16,5 +16,15 @@ class PausedView: UIView {
         super.init(coder: aDecoder)
         self.opaque = false
         self.backgroundColor = UIKit.UIColor(white: 1.0, alpha: 0.0)
+        self.hidden = true
+    }
+
+
+    func show() {
+        self.hidden = false
+    }
+    
+    func hide() {
+        self.hidden = true
     }
 }

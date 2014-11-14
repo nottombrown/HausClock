@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctr-QT-iPN" customClass="TimeView" customModule="HausClock" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctr-QT-iPN" userLabel="Bottom Time View" customClass="TimeView" customModule="HausClock" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NB-iw-3gC">
@@ -63,7 +63,7 @@
                                     <outlet property="label" destination="CaE-V2-jow" id="TWB-kp-19y"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXj-e3-wTM" customClass="TimeView" customModule="HausClock" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXj-e3-wTM" userLabel="Top Time View" customClass="TimeView" customModule="HausClock" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-QQ-Z4W">
@@ -130,16 +130,7 @@
                                             <rect key="frame" x="28" y="33" width="243" height="243"/>
                                         </variation>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lj6-gV-1uQ">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" backgroundImage="resume">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="37" y="43" width="225" height="225"/>
-                                        </variation>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0P-oJ-0SQ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0P-oJ-0SQ" userLabel="Reset Button">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" backgroundImage="reset">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,22 +138,37 @@
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="114" y="207" width="70" height="22"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="touchResetButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9G9-Id-nb5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lj6-gV-1uQ" userLabel="Resume Button">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" backgroundImage="resume">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="37" y="42" width="225" height="225"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="touchResumeButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LZS-gZ-V30"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="Rux-06-Ruh"/>
-                                        <exclude reference="Lj6-gV-1uQ"/>
                                         <exclude reference="N0P-oJ-0SQ"/>
+                                        <exclude reference="Lj6-gV-1uQ"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="126" width="355" height="400"/>
                                     <mask key="subviews">
                                         <include reference="Rux-06-Ruh"/>
-                                        <include reference="Lj6-gV-1uQ"/>
                                         <include reference="N0P-oJ-0SQ"/>
+                                        <include reference="Lj6-gV-1uQ"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -187,6 +193,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomTimeView" destination="Ctr-QT-iPN" id="AKr-Js-6zI"/>
+                        <outlet property="pausedView" destination="K8T-QB-ikT" id="jXz-Jn-eHF"/>
                         <outlet property="topTimeView" destination="YXj-e3-wTM" id="oRd-uH-5Ff"/>
                     </connections>
                 </viewController>

@@ -65,6 +65,7 @@ class ViewController: UIViewController {
     
     var gameState = GameState.Active
     
+    @IBOutlet weak var pausedView: PausedView!
     @IBOutlet weak var topTimeView: TimeView!
     @IBOutlet weak var bottomTimeView: TimeView!
     
@@ -87,6 +88,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func touchPauseButton(sender: UIButton) {
+        pausedView.show()
         gameState = .Paused
     }
     
@@ -96,6 +98,17 @@ class ViewController: UIViewController {
     
     @IBAction func touchBottomButton(sender: UIButton) {
         setPlayerToActive(.Top)
+    }
+    
+    @IBAction func touchResumeButton(sender: AnyObject) {
+        pausedView.hide()
+        gameState = .Active
+    }
+    
+    
+    @IBAction func touchResetButton(sender: AnyObject) {
+        pausedView.hide()
+        // TODO: Reset game state
     }
     
     func getPlayerByPosition(position: PlayerPosition) -> Player {
