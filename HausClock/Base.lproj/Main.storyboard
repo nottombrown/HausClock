@@ -124,6 +124,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8T-QB-ikT" customClass="PausedView" customModule="HausClock" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="big-circle-black" translatesAutoresizingMaskIntoConstraints="NO" id="mMd-Bf-8Tv">
+                                        <rect key="frame" x="0.0" y="-243" width="243" height="243"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="28" y="33" width="243" height="243"/>
+                                        </variation>
+                                    </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="settings-circle" translatesAutoresizingMaskIntoConstraints="NO" id="Rux-06-Ruh">
                                         <rect key="frame" x="0.0" y="-243" width="243" height="243"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -158,6 +164,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="default">
                                     <mask key="subviews">
+                                        <exclude reference="mMd-Bf-8Tv"/>
                                         <exclude reference="Rux-06-Ruh"/>
                                         <exclude reference="Lj6-gV-1uQ"/>
                                         <exclude reference="N0P-oJ-0SQ"/>
@@ -166,6 +173,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="126" width="355" height="400"/>
                                     <mask key="subviews">
+                                        <include reference="mMd-Bf-8Tv"/>
                                         <include reference="Rux-06-Ruh"/>
                                         <include reference="Lj6-gV-1uQ"/>
                                         <include reference="N0P-oJ-0SQ"/>
@@ -202,6 +210,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="big-circle-black" width="243" height="243"/>
         <image name="pause" width="107" height="107"/>
         <image name="reset" width="219" height="85"/>
         <image name="resume" width="225" height="225"/>
