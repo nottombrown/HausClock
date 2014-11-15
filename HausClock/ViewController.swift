@@ -74,8 +74,11 @@ class ViewController: UIViewController {
         topTimeView.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
         
         resetGameState()
-        
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        [topTimeView, bottomTimeView].map( { $0.setFont() })
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -89,6 +92,7 @@ class ViewController: UIViewController {
         
         setPlayerToActive(.Top)
         gameState = .Paused
+        updateTimeViews()
     }
     
     override func didReceiveMemoryWarning() {
@@ -140,6 +144,7 @@ class ViewController: UIViewController {
     }
     
     func updateTimeViews() {
+        // TODO: Replace this call with Observer pattern
         topTimeView.updateWithViewModel(getPlayerByPosition(.Top))
         bottomTimeView.updateWithViewModel(getPlayerByPosition(.Bottom))
     }

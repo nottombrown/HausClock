@@ -24,8 +24,15 @@ class TimeView: UIView {
     let blueColor = "#91c4c5".UIColor
     let redColor = "#ff0000".UIColor
     
-    func updateWithViewModel(player: Player){
+    func setFont() {
+        // @jack: Where do you put View things that need to happen after viewDidLoad()?
+        // Is there a way to set this font globally or in IB?
         
+        label.font = UIFont(name: "Interstate-Black", size: 88.0)
+    }
+    
+    func updateWithViewModel(player: Player){
+        setFont()
         // Set colors
         switch player.state {
         case .Active:
