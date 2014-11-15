@@ -15,7 +15,6 @@ class TimeView: UIView {
     @IBOutlet var label: UILabel!
     
     required init(coder aDecoder: NSCoder) {
-        println("init timeview")
         super.init(coder: aDecoder)
     }
     

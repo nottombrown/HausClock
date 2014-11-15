@@ -89,7 +89,6 @@ class ViewController: UIViewController {
         
         setPlayerToActive(.Top)
         gameState = .Paused
-        println("reset")
     }
     
     override func didReceiveMemoryWarning() {
