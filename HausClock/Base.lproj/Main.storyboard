@@ -50,7 +50,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="0NB-iw-3gC" secondAttribute="centerY" id="9FH-PY-pZg"/>
-                                    <constraint firstAttribute="centerY" secondItem="CaE-V2-jow" secondAttribute="centerY" id="OQI-Aq-w0L"/>
+                                    <constraint firstAttribute="centerY" secondItem="CaE-V2-jow" secondAttribute="centerY" constant="-10" id="OQI-Aq-w0L"/>
                                     <constraint firstItem="0NB-iw-3gC" firstAttribute="width" secondItem="Ctr-QT-iPN" secondAttribute="width" id="P9b-Qh-2hc"/>
                                     <constraint firstAttribute="centerX" secondItem="0NB-iw-3gC" secondAttribute="centerX" id="XFa-kw-uXW"/>
                                     <constraint firstItem="0NB-iw-3gC" firstAttribute="height" secondItem="Ctr-QT-iPN" secondAttribute="height" id="th8-Km-lMr"/>
@@ -119,7 +119,7 @@
                                     <constraint firstAttribute="centerX" secondItem="gFt-QQ-Z4W" secondAttribute="centerX" id="FJC-hU-gc0"/>
                                     <constraint firstAttribute="centerX" secondItem="IYZ-1g-ao7" secondAttribute="centerX" id="M2o-AD-Ys6"/>
                                     <constraint firstAttribute="centerX" secondItem="IYZ-1g-ao7" secondAttribute="centerX" id="emE-jY-ews"/>
-                                    <constraint firstAttribute="centerY" secondItem="IYZ-1g-ao7" secondAttribute="centerY" id="fh1-3F-f9K"/>
+                                    <constraint firstAttribute="centerY" secondItem="IYZ-1g-ao7" secondAttribute="centerY" constant="10" id="fh1-3F-f9K"/>
                                     <constraint firstItem="gFt-QQ-Z4W" firstAttribute="width" secondItem="YXj-e3-wTM" secondAttribute="width" id="lC8-qD-gCg"/>
                                 </constraints>
                                 <variation key="default">
