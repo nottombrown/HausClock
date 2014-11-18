@@ -8,6 +8,7 @@
 
 import UIKit
 import Darwin
+import Dollar
 
 // @Jack where do models and enums like to live?
 
@@ -125,7 +126,7 @@ class ViewController: UIViewController {
     }
     
     func getPlayerByPosition(position: PlayerPosition) -> Player {
-        return players.filter( { $0.position == position } ).first!
+        return $.find(players, { $0.position == position } )!
     }
     
     func getActivePlayer() -> Player? {
