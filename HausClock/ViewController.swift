@@ -130,7 +130,7 @@ class ViewController: UIViewController {
     }
     
     func getActivePlayer() -> Player? {
-        return players.filter( { $0.state == .Active } ).first
+        return $.find(players, { $0.state == .Active } )!
     }
 
     func setPlayerToActive(position: PlayerPosition) {
