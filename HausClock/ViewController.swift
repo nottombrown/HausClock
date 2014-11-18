@@ -38,12 +38,14 @@ enum GameState {
     case Finished
 }
 
+let TIME_INTERVAL = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
+
 class Player {
     let position: PlayerPosition
     var state = PlayerState.Waiting
-    var secondsRemaining = 600
+    var secondsRemaining = 600.0
     
-    init(position:PlayerPosition, state:PlayerState,secondsRemaining:Int){
+    init(position:PlayerPosition, state:PlayerState,secondsRemaining:Double){
         self.position = position
         self.state = state
         self.secondsRemaining = secondsRemaining
@@ -51,8 +53,9 @@ class Player {
 
     // TODO: Where does one normally put formatting utility functions?
     func secondsRemainingAsString() -> String {
-        let minutes = secondsRemaining/60
-        let seconds = secondsRemaining % 60
+        
+        let minutes = Int(secondsRemaining)/60
+        let seconds = Int(secondsRemaining) % 60
         let spacer = seconds < 10 ? "0" : ""
         return "\(minutes):\(spacer)\(seconds)"
     }
@@ -75,7 +78,7 @@ class ViewController: UIViewController {
         topTimeView.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
         
         resetGameState()
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(TIME_INTERVAL, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
     }
     
     override func viewWillLayoutSubviews() {
@@ -88,7 +91,7 @@ class ViewController: UIViewController {
 
     func resetGameState() {
         for player in players {
-            player.secondsRemaining = 600
+            player.secondsRemaining = 600.0
         }
         
         setPlayerToActive(.Top)
@@ -164,7 +167,7 @@ class ViewController: UIViewController {
     // Decrements the active player if one is available. If the player has lost, changes the player state
     func decrementActivePlayer() {
         if var activePlayer = getActivePlayer() {
-            activePlayer.secondsRemaining -= 1
+            activePlayer.secondsRemaining -= TIME_INTERVAL
             
             if activePlayer.secondsRemaining <= 0 {
                 gameState = .Finished
