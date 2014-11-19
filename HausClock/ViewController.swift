@@ -38,7 +38,7 @@ enum GameState {
     case Finished
 }
 
-let TIME_INTERVAL = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
+let clockTickInterval = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
 let initialTimeInSeconds = 20.0
 
 class Player {
@@ -47,7 +47,7 @@ class Player {
     var secondsRemaining = initialTimeInSeconds
     
     init(position:PlayerPosition) {
-        self.position = position    
+        self.position = position
     }
 
     // TODO: Where does one normally put formatting utility functions?
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         topTimeView.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
         
         resetGameState()
-        NSTimer.scheduledTimerWithTimeInterval(TIME_INTERVAL, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
     }
     
     override func viewWillLayoutSubviews() {
@@ -178,7 +178,7 @@ class ViewController: UIViewController {
     // Decrements the active player if one is available. If the player has lost, changes the player state
     func decrementActivePlayer() {
         if var activePlayer = getActivePlayer() {
-            activePlayer.secondsRemaining -= TIME_INTERVAL
+            activePlayer.secondsRemaining -= clockTickInterval
             
             if activePlayer.secondsRemaining <= 0 {
                 gameState = .Finished
