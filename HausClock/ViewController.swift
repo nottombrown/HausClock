@@ -39,16 +39,15 @@ enum GameState {
 }
 
 let TIME_INTERVAL = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
+let initialTimeInSeconds = 20.0
 
 class Player {
     let position: PlayerPosition
     var state = PlayerState.Waiting
-    var secondsRemaining = 600.0
+    var secondsRemaining = initialTimeInSeconds
     
-    init(position:PlayerPosition, state:PlayerState,secondsRemaining:Double){
-        self.position = position
-        self.state = state
-        self.secondsRemaining = secondsRemaining
+    init(position:PlayerPosition) {
+        self.position = position    
     }
 
     // TODO: Where does one normally put formatting utility functions?
@@ -63,8 +62,8 @@ class Player {
 
 class ViewController: UIViewController {
     var players = [
-        Player(position: .Top, state: .Waiting, secondsRemaining: 600), // TODO: Default vals?
-        Player(position: .Bottom, state: .Waiting, secondsRemaining: 600)
+        Player(position: .Top),
+        Player(position: .Bottom)
     ]
     
     var gameState = GameState.Paused
@@ -92,7 +91,7 @@ class ViewController: UIViewController {
 
     func resetGameState() {
         for player in players {
-            player.secondsRemaining = 600.0
+            player.secondsRemaining = initialTimeInSeconds
         }
         
         setPlayerToActive(.Top)
