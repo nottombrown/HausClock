@@ -10,19 +10,20 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class ShrinkingButton: UIButton {
-
+class ButtonWithCustomDragBounds: UIButton {
+    
+    // By default, buttons have bounds of 100px, this lets us customize
+    let boundsExtension = CGFloat(25)
+    
     override func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent) -> Bool {
-        let boundsExtension = CGFloat(25.0)
+        
         let outerBounds = CGRectInset(self.bounds, -1*boundsExtension, -1*boundsExtension)
 
         // Are we currently inside?
         let touchInside = CGRectContainsPoint(outerBounds, touch.locationInView(self))
-        // println("touchInside: \(touchInside)")
 
         // Were we last inside?
         let previousTouchInside = CGRectContainsPoint(outerBounds, touch.previousLocationInView(self))
-        // println("previousTouchInside: \(previousTouchInside)")
 
         if touchInside {
             if previousTouchInside {
@@ -38,7 +39,6 @@ class ShrinkingButton: UIButton {
                 self.sendActionsForControlEvents(UIControlEvents.TouchDragOutside)
             }
         }
-        
         
         return super.continueTrackingWithTouch(touch, withEvent: event)
     }

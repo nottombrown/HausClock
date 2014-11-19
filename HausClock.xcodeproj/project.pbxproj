@@ -18,7 +18,7 @@
 		82F39E6C1A1730B400678133 /* InterstateMonoBlk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82F39E6B1A172F9500678133 /* InterstateMonoBlk.ttf */; };
 		82FDF6CF1A1B4589007206AE /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FDF6CC1A1B4566007206AE /* Dollar.framework */; };
 		82FDF6D91A1B462A007206AE /* Cent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FDF6D61A1B4622007206AE /* Cent.framework */; };
-		82FDF6DB1A1C5BBE007206AE /* ShrinkingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FDF6DA1A1C5BBE007206AE /* ShrinkingButton.swift */; };
+		82FDF6DB1A1C5BBE007206AE /* ButtonWithCustomDragBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FDF6DA1A1C5BBE007206AE /* ButtonWithCustomDragBounds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,7 @@
 		82F39E6B1A172F9500678133 /* InterstateMonoBlk.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = InterstateMonoBlk.ttf; path = Resources/InterstateMonoBlk.ttf; sourceTree = "<group>"; };
 		82FDF6C61A1B4566007206AE /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		82FDF6D01A1B4622007206AE /* Cent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cent.xcodeproj; path = Dollar.swift/Cent/Cent.xcodeproj; sourceTree = "<group>"; };
-		82FDF6DA1A1C5BBE007206AE /* ShrinkingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrinkingButton.swift; sourceTree = "<group>"; };
+		82FDF6DA1A1C5BBE007206AE /* ButtonWithCustomDragBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithCustomDragBounds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +129,7 @@
 				82D156981973665400DD9ABD /* Main.storyboard */,
 				82F39E661A171E9100678133 /* Resources */,
 				82D156921973665400DD9ABD /* Supporting Files */,
-				82FDF6DA1A1C5BBE007206AE /* ShrinkingButton.swift */,
+				82FDF6DA1A1C5BBE007206AE /* ButtonWithCustomDragBounds.swift */,
 			);
 			path = HausClock;
 			sourceTree = "<group>";
@@ -333,7 +333,7 @@
 				82D156951973665400DD9ABD /* AppDelegate.swift in Sources */,
 				825C27B919738200008D8331 /* UIColorExtension.swift in Sources */,
 				82017D0019F7723700877960 /* TimeView.swift in Sources */,
-				82FDF6DB1A1C5BBE007206AE /* ShrinkingButton.swift in Sources */,
+				82FDF6DB1A1C5BBE007206AE /* ButtonWithCustomDragBounds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
