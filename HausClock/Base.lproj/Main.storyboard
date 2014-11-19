@@ -157,6 +157,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="expandPauseButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RZR-dh-c1u"/>
+                                    <action selector="expandPauseButton:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="eqR-2l-GfF"/>
+                                    <action selector="shrinkPauseButton:" destination="vXZ-lx-hvc" eventType="touchDown" id="N6F-t0-V5a"/>
+                                    <action selector="shrinkPauseButton:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="dmT-Ax-erP"/>
                                     <action selector="touchPauseButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wwz-lK-4A3"/>
                                 </connections>
                             </button>
@@ -289,6 +293,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomTimeView" destination="Ctr-QT-iPN" id="AKr-Js-6zI"/>
+                        <outlet property="pauseButton" destination="4zC-Qw-67g" id="pWw-NK-lbV"/>
                         <outlet property="pausedView" destination="K8T-QB-ikT" id="jXz-Jn-eHF"/>
                         <outlet property="topTimeView" destination="YXj-e3-wTM" id="oRd-uH-5Ff"/>
                     </connections>

@@ -72,6 +72,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pausedView: PausedView!
     @IBOutlet weak var topTimeView: TimeView!
     @IBOutlet weak var bottomTimeView: TimeView!
+    @IBOutlet weak var pauseButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,6 +110,18 @@ class ViewController: UIViewController {
         gameState = .Paused
     }
     
+    @IBAction func shrinkPauseButton(sender: AnyObject) {
+        UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
+            self.pauseButton.transform = CGAffineTransformScale(CGAffineTransformIdentity, CGFloat(0.8), CGFloat(0.8))
+        }, completion: nil)
+    }
+  
+    @IBAction func expandPauseButton(sender: AnyObject) {
+        UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
+            self.pauseButton.transform = CGAffineTransformIdentity
+        }, completion: nil )
+    }
+
     @IBAction func touchTopButton(sender: UIButton) {
         setPlayerToActive(.Bottom)
     }
@@ -121,7 +134,6 @@ class ViewController: UIViewController {
         pausedView.hide()
         gameState = .Active
     }
-    
     
     @IBAction func touchResetButton(sender: AnyObject) {
         resetGameState()

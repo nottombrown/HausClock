@@ -23,11 +23,10 @@ class PausedView: UIView {
 
 
     func show() {
-        self.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
-        self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1/scaleFactor, 1/scaleFactor)
+        self.transform = CGAffineTransformScale(self.transform, 1/scaleFactor, 1/scaleFactor)
         self.hidden = false
         
-        UIView.animateWithDuration(0.7, delay: 0.0, options: .CurveEaseOut, animations: {
+        UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
             println("Starting animation")
             self.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(0))
             }, completion: { finished in
