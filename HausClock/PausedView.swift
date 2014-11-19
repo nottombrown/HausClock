@@ -11,6 +11,8 @@ import UIKit
 
 @IBDesignable
 class PausedView: UIView {
+
+    let scaleFactor = CGFloat(224.0/107.0) // The view starts out small and grows to 224 px
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -21,7 +23,16 @@ class PausedView: UIView {
 
 
     func show() {
+        self.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
+        self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1/scaleFactor, 1/scaleFactor)
         self.hidden = false
+        
+        UIView.animateWithDuration(0.7, delay: 0.0, options: .CurveEaseOut, animations: {
+            println("Starting animation")
+            self.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(0))
+            }, completion: { finished in
+                println("Finished animation")
+        })
     }
     
     func hide() {

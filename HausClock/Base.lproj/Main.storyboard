@@ -137,13 +137,13 @@
                                         <include reference="IYZ-1g-ao7"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="M2o-AD-Ys6"/>
+                                        <include reference="emE-jY-ews"/>
+                                        <include reference="fh1-3F-f9K"/>
                                         <include reference="1sQ-bq-xSZ"/>
                                         <include reference="6R2-Va-G6U"/>
                                         <include reference="FJC-hU-gc0"/>
                                         <include reference="lC8-qD-gCg"/>
-                                        <include reference="M2o-AD-Ys6"/>
-                                        <include reference="emE-jY-ews"/>
-                                        <include reference="fh1-3F-f9K"/>
                                     </mask>
                                 </variation>
                                 <connections>
