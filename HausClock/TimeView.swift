@@ -26,7 +26,7 @@ class TimeView: UIView {
     
     func setFont() {
         // @jack: Where do you put View things that need to happen after viewDidLoad()?
-        // Is there a way to set this font globally or in IB?        
+        // Is there a way to set this font globally or in IB?
         label.font = UIFont(name: "InterstateMono-Blk", size: 88.0)
     }
     
