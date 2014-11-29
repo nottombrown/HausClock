@@ -23,7 +23,6 @@ class TimeView: UIView {
     let whiteColor = UIColor.whiteColor()
     let blueColor = "#91c4c5".UIColor
     let redColor = "#ff0000".UIColor
-    
     func setFont() {
         // @jack: Where do you put View things that need to happen after viewDidLoad()?
         // Is there a way to set this font globally or in IB?
