@@ -14,9 +14,10 @@
 		820F36E01A29500100551B12 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36DF1A29500100551B12 /* Game.swift */; };
 		820F36E31A2995ED00551B12 /* PulsatingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36E21A2995ED00551B12 /* PulsatingBackgroundView.swift */; };
 		820F36E61A29968500551B12 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36E51A29968500551B12 /* Colors.swift */; };
-		820F371C1A29ABA900551B12 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820F37151A29AB5000551B12 /* ReactiveCocoa.framework */; };
 		824DFCE91A29B8D9001002B2 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 824DFCE21A29B8BC001002B2 /* LlamaKit.framework */; };
 		824DFCEA1A29B8D9001002B2 /* LlamaKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 824DFCE21A29B8BC001002B2 /* LlamaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		824DFD021A29BA2D001002B2 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820F37191A29AB5000551B12 /* ReactiveCocoa.framework */; };
+		824DFD031A29BA2D001002B2 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 820F37191A29AB5000551B12 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		825631F01A144C2800D8BFCD /* PausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825631EF1A144C2800D8BFCD /* PausedView.swift */; };
 		825C27B919738200008D8331 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C27B819738200008D8331 /* UIColorExtension.swift */; };
 		82D156951973665400DD9ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D156941973665400DD9ABD /* AppDelegate.swift */; };
@@ -99,6 +100,13 @@
 			remoteGlobalIDString = FB2F8D8019BF637B00E4C49E;
 			remoteInfo = "LlamaKit-iOS";
 		};
+		824DFD041A29BA2D001002B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 820F370C1A29AB5000551B12 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D047260B19E49F82006002AA;
+			remoteInfo = "ReactiveCocoa-iOS";
+		};
 		82D156A21973665400DD9ABD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 82D156871973665400DD9ABD /* Project object */;
@@ -130,6 +138,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				820F36D61A1C6C7200551B12 /* Dollar.framework in Embed Frameworks */,
+				824DFD031A29BA2D001002B2 /* ReactiveCocoa.framework in Embed Frameworks */,
 				824DFCEA1A29B8D9001002B2 /* LlamaKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -166,8 +175,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				820F371C1A29ABA900551B12 /* ReactiveCocoa.framework in Frameworks */,
 				820F36D51A1C6C7200551B12 /* Dollar.framework in Frameworks */,
+				824DFD021A29BA2D001002B2 /* ReactiveCocoa.framework in Frameworks */,
 				824DFCE91A29B8D9001002B2 /* LlamaKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +322,7 @@
 			dependencies = (
 				820F36D81A1C6C7200551B12 /* PBXTargetDependency */,
 				824DFCEC1A29B8D9001002B2 /* PBXTargetDependency */,
+				824DFD051A29BA2D001002B2 /* PBXTargetDependency */,
 			);
 			name = HausClock;
 			productName = HausClock;
@@ -520,6 +530,11 @@
 			isa = PBXTargetDependency;
 			name = "LlamaKit-iOS";
 			targetProxy = 824DFCEB1A29B8D9001002B2 /* PBXContainerItemProxy */;
+		};
+		824DFD051A29BA2D001002B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ReactiveCocoa-iOS";
+			targetProxy = 824DFD041A29BA2D001002B2 /* PBXContainerItemProxy */;
 		};
 		82D156A31973665400DD9ABD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
