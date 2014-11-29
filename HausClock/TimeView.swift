@@ -14,7 +14,12 @@ class TimeView: UIView {
     @IBOutlet var button: UIButton!
     @IBOutlet var label: UILabel!
     
-
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        opaque = false
+        backgroundColor = UIKit.UIColor(white: 1.0, alpha: 0.0)
+    }
+    
     func setFont() {
         // @jack: Where do you put View things that need to happen after viewDidLoad()?
         // Is there a way to set this font globally or in IB?

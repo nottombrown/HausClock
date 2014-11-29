@@ -22,7 +22,6 @@ class PausedView: UIView {
         self.smallTransform = CGAffineTransformScale(CGAffineTransformIdentity, 1/scaleFactor, 1/scaleFactor)
         
         super.init(coder: aDecoder)
-        
         opaque = false
         backgroundColor = UIKit.UIColor(white: 1.0, alpha: 0.0)
         
