@@ -41,9 +41,7 @@ class Player {
         self.secondsRemaining = ObservableProperty(initialTimeInSeconds)
     }
     
-    // TODO: Where does one normally put formatting utility functions?
     func secondsRemainingAsString() -> String {
-        
         let minutes = Int(secondsRemaining.value)/60
         let seconds = Int(secondsRemaining.value) % 60
         let spacer = seconds < 10 ? "0" : ""

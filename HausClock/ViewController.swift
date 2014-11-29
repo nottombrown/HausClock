@@ -31,6 +31,10 @@ class ViewController: UIViewController {
         NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         
         updateTimeViews() // TODO: Use observer for all these calls
+        
+        
+        topTimeView.observePlayer(game.getPlayerByPosition(.Top))
+        bottomTimeView.observePlayer(game.getPlayerByPosition(.Bottom))
     }
     
     override func viewWillLayoutSubviews() {
@@ -40,8 +44,6 @@ class ViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,8 +61,7 @@ class ViewController: UIViewController {
     
     func updateTimeViews() {
         // TODO: Replace this call with Observer pattern
-        topTimeView.updateWithViewModel(game.getPlayerByPosition(.Top))
-        bottomTimeView.updateWithViewModel(game.getPlayerByPosition(.Bottom))
+
     }
     
     func onClockTick() {

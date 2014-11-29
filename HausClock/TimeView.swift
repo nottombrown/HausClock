@@ -46,4 +46,16 @@ class TimeView: UIView {
         // Set seconds remaining
         label.text = player.secondsRemainingAsString()
     }
+
+    // TODO: is there a canonical RAC name for this observer setup method?
+    func observePlayer(player: Player) {
+//        self.player = player // Cache the model
+//        onReady() // TODO: e.g. $.ready()
+        
+        player.secondsRemaining.values().start { _ in
+            // Set seconds remaining
+            self.updateWithViewModel(player)
+        }
+        
+    }
 }
