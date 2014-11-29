@@ -33,6 +33,34 @@
 			remoteGlobalIDString = 92E0D03B19467C67002ACC3D;
 			remoteInfo = Dollar;
 		};
+		820F37141A29AB5000551B12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 820F370C1A29AB5000551B12 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D04725EA19E49ED7006002AA;
+			remoteInfo = "ReactiveCocoa-Mac";
+		};
+		820F37161A29AB5000551B12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 820F370C1A29AB5000551B12 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D04725F519E49ED7006002AA;
+			remoteInfo = "ReactiveCocoa-MacTests";
+		};
+		820F37181A29AB5000551B12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 820F370C1A29AB5000551B12 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047260C19E49F82006002AA;
+			remoteInfo = "ReactiveCocoa-iOS";
+		};
+		820F371A1A29AB5000551B12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 820F370C1A29AB5000551B12 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047261619E49F82006002AA;
+			remoteInfo = "ReactiveCocoa-iOSTests";
+		};
 		82D156A21973665400DD9ABD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 82D156871973665400DD9ABD /* Project object */;
@@ -76,6 +104,7 @@
 		820F36DF1A29500100551B12 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = Models/Game.swift; sourceTree = "<group>"; };
 		820F36E21A2995ED00551B12 /* PulsatingBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulsatingBackgroundView.swift; sourceTree = "<group>"; };
 		820F36E51A29968500551B12 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		820F370C1A29AB5000551B12 /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = ReactiveCocoa/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
 		825631EF1A144C2800D8BFCD /* PausedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedView.swift; sourceTree = "<group>"; };
 		825C27B819738200008D8331 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		82D1568F1973665400DD9ABD /* HausClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HausClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,9 +149,21 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		820F370D1A29AB5000551B12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				820F37151A29AB5000551B12 /* ReactiveCocoa.framework */,
+				820F37171A29AB5000551B12 /* ReactiveCocoa-MacTests.xctest */,
+				820F37191A29AB5000551B12 /* ReactiveCocoa.framework */,
+				820F371B1A29AB5000551B12 /* ReactiveCocoa-iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		82D156861973665400DD9ABD = {
 			isa = PBXGroup;
 			children = (
+				820F370C1A29AB5000551B12 /* ReactiveCocoa.xcodeproj */,
 				82FDF6C61A1B4566007206AE /* Dollar.xcodeproj */,
 				82D156911973665400DD9ABD /* HausClock */,
 				82D156A41973665400DD9ABD /* HausClockTests */,
@@ -276,6 +317,10 @@
 					ProductGroup = 82FDF6C71A1B4566007206AE /* Products */;
 					ProjectRef = 82FDF6C61A1B4566007206AE /* Dollar.xcodeproj */;
 				},
+				{
+					ProductGroup = 820F370D1A29AB5000551B12 /* Products */;
+					ProjectRef = 820F370C1A29AB5000551B12 /* ReactiveCocoa.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -286,6 +331,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		820F37151A29AB5000551B12 /* ReactiveCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveCocoa.framework;
+			remoteRef = 820F37141A29AB5000551B12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		820F37171A29AB5000551B12 /* ReactiveCocoa-MacTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ReactiveCocoa-MacTests.xctest";
+			remoteRef = 820F37161A29AB5000551B12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		820F37191A29AB5000551B12 /* ReactiveCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveCocoa.framework;
+			remoteRef = 820F37181A29AB5000551B12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		820F371B1A29AB5000551B12 /* ReactiveCocoa-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ReactiveCocoa-iOSTests.xctest";
+			remoteRef = 820F371A1A29AB5000551B12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		82FDF6CC1A1B4566007206AE /* Dollar.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
