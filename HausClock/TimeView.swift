@@ -14,12 +14,7 @@ class TimeView: UIView {
     @IBOutlet var button: UIButton!
     @IBOutlet var label: UILabel!
     
-    // Colors
-    let blackColor = UIColor.blackColor()
-    let whiteColor = UIColor.whiteColor()
-    let blueColor = "#91c4c5".UIColor
-    let redColor = "#ff0000".UIColor
-    
+
     func setFont() {
         // @jack: Where do you put View things that need to happen after viewDidLoad()?
         // Is there a way to set this font globally or in IB?
@@ -31,11 +26,11 @@ class TimeView: UIView {
         // Set colors
         switch player.state {
         case .Active:
-            button.backgroundColor = blueColor
-            label.textColor = blackColor
+            button.backgroundColor = Colors.blueColor
+            label.textColor = Colors.blackColor
         case .Waiting:
-            button.backgroundColor = blackColor
-            label.textColor = whiteColor
+            button.backgroundColor = Colors.blackColor
+            label.textColor = Colors.whiteColor
         }
         
         // Set seconds remaining

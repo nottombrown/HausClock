@@ -23,6 +23,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asf-yp-i81" userLabel="Pulsating Background View" customClass="PulsatingBackgroundView" customModule="HausClock" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="100" y="200" width="200" height="400"/>
+                                </variation>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctr-QT-iPN" userLabel="Bottom Time View" customClass="TimeView" customModule="HausClock" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -262,6 +269,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="asf-yp-i81"/>
                                 <exclude reference="Ctr-QT-iPN"/>
                                 <exclude reference="YXj-e3-wTM"/>
                                 <exclude reference="4zC-Qw-67g"/>
@@ -270,6 +278,7 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="asf-yp-i81"/>
                                 <include reference="Ctr-QT-iPN"/>
                                 <include reference="YXj-e3-wTM"/>
                                 <include reference="4zC-Qw-67g"/>

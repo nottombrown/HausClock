@@ -15,6 +15,7 @@ class PulsatingBackgroundView: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         pulseIn(true)
+        backgroundColor = Colors.blueColor
     }
     
     func pulseOut(_: Bool) {
