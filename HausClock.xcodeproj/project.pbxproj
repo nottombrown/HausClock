@@ -14,6 +14,7 @@
 		820F36E01A29500100551B12 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36DF1A29500100551B12 /* Game.swift */; };
 		820F36E31A2995ED00551B12 /* PulsatingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36E21A2995ED00551B12 /* PulsatingBackgroundView.swift */; };
 		820F36E61A29968500551B12 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36E51A29968500551B12 /* Colors.swift */; };
+		820F371C1A29ABA900551B12 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820F37151A29AB5000551B12 /* ReactiveCocoa.framework */; };
 		825631F01A144C2800D8BFCD /* PausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825631EF1A144C2800D8BFCD /* PausedView.swift */; };
 		825C27B919738200008D8331 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C27B819738200008D8331 /* UIColorExtension.swift */; };
 		82D156951973665400DD9ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D156941973665400DD9ABD /* AppDelegate.swift */; };
@@ -126,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				820F371C1A29ABA900551B12 /* ReactiveCocoa.framework in Frameworks */,
 				820F36D51A1C6C7200551B12 /* Dollar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,8 +533,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = HausClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -543,8 +552,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = HausClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
