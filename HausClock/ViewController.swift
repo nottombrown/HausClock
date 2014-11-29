@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        [topTimeView, bottomTimeView].map( { $0.setFont() })
+        [topTimeView, bottomTimeView].map( { $0.onReady() })
     }
     
     override func prefersStatusBarHidden() -> Bool {
