@@ -40,8 +40,8 @@ class Game {
         var activePlayer = getPlayerByPosition(position)
         var inactivePlayer = getPlayerByPosition(position.opposite())
         
-        activePlayer.state = .Active
-        inactivePlayer.state = .Waiting
+        activePlayer.state.value = .Active
+        inactivePlayer.state.value = .Waiting
         state = .Active
     }
     
@@ -50,6 +50,6 @@ class Game {
     }
     
     func getActivePlayer() -> Player? {
-        return $.find(players, { $0.state == PlayerState.Active } )!
+        return $.find(players, { $0.state.value == PlayerState.Active } )!
     }
 }

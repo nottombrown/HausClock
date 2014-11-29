@@ -33,12 +33,13 @@ class Player {
     let initialTimeInSeconds:Double = 20.0
 
     let position: PlayerPosition
-    var state = PlayerState.Waiting
+    var state: ObservableProperty<PlayerState>
     var secondsRemaining: ObservableProperty<Double>
     
     init(position:PlayerPosition) {
         self.position = position
         self.secondsRemaining = ObservableProperty(initialTimeInSeconds)
+        state = ObservableProperty(PlayerState.Waiting)
     }
     
     func secondsRemainingAsString() -> String {

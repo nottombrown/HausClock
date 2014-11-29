@@ -24,38 +24,27 @@ class TimeView: UIView {
         // @jack: Where do you put View things that need to happen after viewDidLoad()?
         // Is there a way to set this font globally or in IB?
         label.font = UIFont(name: "InterstateMono-Blk", size: 88.0)
+        button.backgroundColor = Colors.blackColor
     }
     
-    func updateWithViewModel(player: Player){
-        setFont()
-        
-        button.backgroundColor = Colors.blackColor
-        
-        // Set colors
-        switch player.state {
-        case .Active:
-            // hide the black button so that the pulsating background shows through. 
-            // HACK: less than 0.05 opacity makes the button unclickable for some reason
-            button.layer.opacity = 0.05
-            label.textColor = Colors.blackColor
-        case .Waiting:
-            button.layer.opacity = 1.0
-            label.textColor = Colors.whiteColor
-        }
-        
-        // Set seconds remaining
-        label.text = player.secondsRemainingAsString()
-    }
-
     // TODO: is there a canonical RAC name for this observer setup method?
-    func observePlayer(player: Player) {
-//        self.player = player // Cache the model
-//        onReady() // TODO: e.g. $.ready()
-        
+    func observePlayer(player: Player) {        
         player.secondsRemaining.values().start { _ in
-            // Set seconds remaining
-            self.updateWithViewModel(player)
+            // TODO: we could have another signal that's stringified for less processing
+            self.label.text = player.secondsRemainingAsString()
         }
         
+        player.state.values().start { state in
+            switch state {
+            case .Active:
+                // hide the black button so that the pulsating background shows through.
+                // HACK: less than 0.05 opacity makes the button unclickable for some reason
+                self.button.layer.opacity = 0.05
+                self.label.textColor = Colors.blackColor
+            case .Waiting:
+                self.button.layer.opacity = 1.0
+                self.label.textColor = Colors.whiteColor
+            }
+        }
     }
 }
