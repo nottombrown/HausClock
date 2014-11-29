@@ -8,7 +8,6 @@
 
 import UIKit
 import Darwin
-import Dollar
 
 // @Jack where do models and enums like to live?
 
@@ -17,12 +16,9 @@ let initialTimeInSeconds = 20.0
 
 
 class ViewController: UIViewController {
-    var players = [
-        Player(position: .Top),
-        Player(position: .Bottom)
-    ]
+
     
-    var gameState = GameState.Paused
+    var game = Game()
     
     @IBOutlet weak var pausedView: PausedView!
     @IBOutlet weak var topTimeView: TimeView!
@@ -34,8 +30,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         topTimeView.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
         
-        resetGameState()
         NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
+        
+        updateTimeViews() // TODO: Use observer for all these calls
     }
     
     override func viewWillLayoutSubviews() {
@@ -46,55 +43,30 @@ class ViewController: UIViewController {
         return true
     }
 
-    func resetGameState() {
-        for player in players {
-            player.secondsRemaining = initialTimeInSeconds
-        }
-        
-        setPlayerToActive(.Top)
-        gameState = .Paused
-        updateTimeViews()
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     @IBAction func touchTopButton(sender: UIButton) {
-        setPlayerToActive(.Bottom)
+        game.setPlayerToActive(.Bottom)
+        updateTimeViews() // TODO: Use observer for all these calls
     }
     
     @IBAction func touchBottomButton(sender: UIButton) {
-        setPlayerToActive(.Top)
-    }
-    
-    func getPlayerByPosition(position: PlayerPosition) -> Player {
-        return $.find(players, { $0.position == position } )!
-    }
-    
-    func getActivePlayer() -> Player? {
-        return $.find(players, { $0.state == PlayerState.Active } )!
-    }
-
-    func setPlayerToActive(position: PlayerPosition) {
-        var activePlayer = getPlayerByPosition(position)
-        var inactivePlayer = getPlayerByPosition(position.opposite())
-        
-        activePlayer.state = .Active
-        inactivePlayer.state = .Waiting
-        gameState = .Active
-
-        updateTimeViews()
+        game.setPlayerToActive(.Top)
+        updateTimeViews() // TODO: Use observer for all these calls
     }
     
     func updateTimeViews() {
         // TODO: Replace this call with Observer pattern
-        topTimeView.updateWithViewModel(getPlayerByPosition(.Top))
-        bottomTimeView.updateWithViewModel(getPlayerByPosition(.Bottom))
+        topTimeView.updateWithViewModel(game.getPlayerByPosition(.Top))
+        bottomTimeView.updateWithViewModel(game.getPlayerByPosition(.Bottom))
     }
     
     func onClockTick() {
-        switch gameState {
+        switch game.state {
         case .Active:
             decrementActivePlayer()
         case .Finished:
@@ -106,11 +78,11 @@ class ViewController: UIViewController {
     
     // Decrements the active player if one is available. If the player has lost, changes the player state
     func decrementActivePlayer() {
-        if var activePlayer = getActivePlayer() {
+        if var activePlayer = game.getActivePlayer() {
             activePlayer.secondsRemaining -= clockTickInterval
             
             if activePlayer.secondsRemaining <= 0 {
-                gameState = .Finished
+                game.state = .Finished
             }
             updateTimeViews()
         }
@@ -122,7 +94,7 @@ extension ViewController {
     
     @IBAction func touchPauseButton(sender: UIButton) {
         pausedView.show()
-        gameState = .Paused
+        game.state = .Paused
         pulsatingBackgroundView.pauseAnimation() // TODO: Use observers instead
     }
     
@@ -140,12 +112,12 @@ extension ViewController {
     
     @IBAction func touchResumeButton(sender: AnyObject) {
         pausedView.hide()
-        gameState = .Active
+        game.state = .Active
         pulsatingBackgroundView.resumeAnimation()
     }
     
     @IBAction func touchResetButton(sender: AnyObject) {
-        resetGameState()
+        game.reset()
         pausedView.hide()
     }
 }

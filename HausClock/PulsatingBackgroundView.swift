@@ -12,7 +12,7 @@ import UIKit
 @IBDesignable
 class PulsatingBackgroundView: UIView {
     
-    let pulseDuration = 0.5
+    let pulseDuration = 0.5 // Full cycle takes 1 second
     let pulseDimming = 0.60
     
     required init(coder aDecoder: NSCoder) {
