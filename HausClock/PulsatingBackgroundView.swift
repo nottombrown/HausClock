@@ -21,6 +21,12 @@ class PulsatingBackgroundView: UIView {
         backgroundColor = Colors.blueColor
     }
     
+    func observe(game: Game) {
+        game.state.values().start { state in
+            (state == GameState.Paused) ? self.pauseAnimation() : self.resumeAnimation()
+        }
+    }
+    
     func pulseOut(_: Bool) {
         UIView.animateWithDuration(pulseDuration, delay: 0.0, options: .CurveEaseInOut | .AllowUserInteraction, animations: {
             self.layer.opacity = Float(self.pulseDimming)

@@ -29,7 +29,7 @@ class TimeView: UIView {
     }
     
     // TODO: is there a canonical RAC name for this observer setup method?
-    func observePlayer(player: Player) {
+    func observe(player: Player) {
         player.secondsRemaining.values().start { _ in
             // TODO: we could have another signal that's stringified for less processing
             self.label.text = player.secondsRemainingAsString()

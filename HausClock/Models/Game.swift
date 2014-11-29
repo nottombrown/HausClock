@@ -8,6 +8,7 @@
 
 import Foundation
 import Dollar
+import ReactiveCocoa
 
 enum GameState {
     case Active
@@ -16,10 +17,11 @@ enum GameState {
 }
 
 class Game {
-    var state = GameState.Paused
+    var state: ObservableProperty<GameState>
     let clockTickInterval:Double = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
     
     init() {
+        state = ObservableProperty(GameState.Paused)
         NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         reset()
     }
@@ -35,7 +37,7 @@ class Game {
         }
 
         setPlayerToActive(.Top)
-        state = .Paused
+        state.value = .Paused
     }
     
     func setPlayerToActive(position: PlayerPosition) {
@@ -44,7 +46,7 @@ class Game {
         
         activePlayer.state.value = .Active
         inactivePlayer.state.value = .Waiting
-        state = .Active
+        state.value = .Active
     }
     
     func getPlayerByPosition(position: PlayerPosition) -> Player {
@@ -56,7 +58,7 @@ class Game {
     }
     
     @objc func onClockTick() {
-        switch state {
+        switch state.value {
         case .Active:
             decrementActivePlayer()
         case .Finished:
@@ -72,8 +74,7 @@ class Game {
             activePlayer.secondsRemaining.value -= clockTickInterval
             
             if activePlayer.secondsRemaining.value <= 0 {
-                
-state = .Finished
+                state.value = .Finished
             }
         }
     }

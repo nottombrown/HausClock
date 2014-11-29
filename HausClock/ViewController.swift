@@ -24,10 +24,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         topTimeView.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
         
+        topTimeView.observe(game.getPlayerByPosition(.Top))
+        bottomTimeView.observe(game.getPlayerByPosition(.Bottom))
         
-        
-        topTimeView.observePlayer(game.getPlayerByPosition(.Top))
-        bottomTimeView.observePlayer(game.getPlayerByPosition(.Bottom))
+        pulsatingBackgroundView.observe(game)
     }
     
     override func viewWillLayoutSubviews() {
@@ -56,7 +56,7 @@ extension ViewController {
     
     @IBAction func touchPauseButton(sender: UIButton) {
         pausedView.show()
-        game.state = .Paused
+        game.state.value = .Paused
         pulsatingBackgroundView.pauseAnimation() // TODO: Use observers instead
     }
     
@@ -74,7 +74,7 @@ extension ViewController {
     
     @IBAction func touchResumeButton(sender: AnyObject) {
         pausedView.hide()
-        game.state = .Active
+        game.state.value = .Active
         pulsatingBackgroundView.resumeAnimation()
     }
     
