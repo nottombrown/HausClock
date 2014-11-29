@@ -14,10 +14,6 @@ class TimeView: UIView {
     @IBOutlet var button: UIButton!
     @IBOutlet var label: UILabel!
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     // Colors
     let blackColor = UIColor.blackColor()
     let whiteColor = UIColor.whiteColor()

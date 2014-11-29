@@ -12,6 +12,7 @@
 		820F36D61A1C6C7200551B12 /* Dollar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82FDF6CC1A1B4566007206AE /* Dollar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		820F36DC1A294F0400551B12 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36DB1A294F0400551B12 /* Player.swift */; };
 		820F36E01A29500100551B12 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36DF1A29500100551B12 /* Game.swift */; };
+		820F36E31A2995ED00551B12 /* PulsatingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36E21A2995ED00551B12 /* PulsatingBackgroundView.swift */; };
 		825631F01A144C2800D8BFCD /* PausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825631EF1A144C2800D8BFCD /* PausedView.swift */; };
 		825C27B919738200008D8331 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C27B819738200008D8331 /* UIColorExtension.swift */; };
 		82D156951973665400DD9ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D156941973665400DD9ABD /* AppDelegate.swift */; };
@@ -72,6 +73,7 @@
 		82017CFF19F7723700877960 /* TimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		820F36DB1A294F0400551B12 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Models/Player.swift; sourceTree = "<group>"; };
 		820F36DF1A29500100551B12 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = Models/Game.swift; sourceTree = "<group>"; };
+		820F36E21A2995ED00551B12 /* PulsatingBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulsatingBackgroundView.swift; sourceTree = "<group>"; };
 		825631EF1A144C2800D8BFCD /* PausedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedView.swift; sourceTree = "<group>"; };
 		825C27B819738200008D8331 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		82D1568F1973665400DD9ABD /* HausClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HausClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +143,7 @@
 				820F36DA1A294EA600551B12 /* Models */,
 				82017CFF19F7723700877960 /* TimeView.swift */,
 				825631EF1A144C2800D8BFCD /* PausedView.swift */,
+				820F36E21A2995ED00551B12 /* PulsatingBackgroundView.swift */,
 				82D156941973665400DD9ABD /* AppDelegate.swift */,
 				82D156961973665400DD9ABD /* ViewController.swift */,
 				825C27B819738200008D8331 /* UIColorExtension.swift */,
@@ -323,6 +326,7 @@
 			files = (
 				825631F01A144C2800D8BFCD /* PausedView.swift in Sources */,
 				82D156971973665400DD9ABD /* ViewController.swift in Sources */,
+				820F36E31A2995ED00551B12 /* PulsatingBackgroundView.swift in Sources */,
 				82D156951973665400DD9ABD /* AppDelegate.swift in Sources */,
 				825C27B919738200008D8331 /* UIColorExtension.swift in Sources */,
 				820F36DC1A294F0400551B12 /* Player.swift in Sources */,
