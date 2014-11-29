@@ -10,10 +10,6 @@ import UIKit
 import Darwin
 import ReactiveCocoa
 
-// @Jack where do models and enums like to live?
-
-let clockTickInterval:Double = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
-
 class ViewController: UIViewController {
 
     var game = Game()
@@ -28,7 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         topTimeView.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI))
         
-        NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
+        
         
         topTimeView.observePlayer(game.getPlayerByPosition(.Top))
         bottomTimeView.observePlayer(game.getPlayerByPosition(.Bottom))
@@ -52,28 +48,6 @@ class ViewController: UIViewController {
     
     @IBAction func touchBottomButton(sender: UIButton) {
         game.setPlayerToActive(.Top)
-    }
-    
-    func onClockTick() {
-        switch game.state {
-        case .Active:
-            decrementActivePlayer()
-        case .Finished:
-            break
-        case .Paused:
-            break
-        }
-    }
-    
-    // Decrements the active player if one is available. If the player has lost, changes the player state
-    func decrementActivePlayer() {
-        if var activePlayer = game.getActivePlayer() {
-            activePlayer.secondsRemaining.value -= clockTickInterval
-            
-            if activePlayer.secondsRemaining.value <= 0 {
-                game.state = .Finished
-            }
-        }
     }
 }
 

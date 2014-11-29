@@ -17,8 +17,10 @@ enum GameState {
 
 class Game {
     var state = GameState.Paused
+    let clockTickInterval:Double = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
     
     init() {
+        NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         reset()
     }
     
@@ -51,5 +53,28 @@ class Game {
     
     func getActivePlayer() -> Player? {
         return $.find(players, { $0.state.value == PlayerState.Active } )!
+    }
+    
+    @objc func onClockTick() {
+        switch state {
+        case .Active:
+            decrementActivePlayer()
+        case .Finished:
+            break
+        case .Paused:
+            break
+        }
+    }
+    
+    // Decrements the active player if one is available. If the player has lost, changes the player state
+    func decrementActivePlayer() {
+        if var activePlayer = getActivePlayer() {
+            activePlayer.secondsRemaining.value -= clockTickInterval
+            
+            if activePlayer.secondsRemaining.value <= 0 {
+                
+state = .Finished
+            }
+        }
     }
 }
