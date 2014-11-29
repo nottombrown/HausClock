@@ -11,13 +11,10 @@ import UIKit
 
 @IBDesignable
 class PausedView: UIView {
-
     
     let scaleFactor = CGFloat(224.0/107.0) // The view starts out small and grows to 224 px
     let largeTransform: CGAffineTransform
     let smallTransform: CGAffineTransform
-    
-    
     
     required init(coder aDecoder: NSCoder) {
         // It would be nice to be able to initialize these constants earlier, but swift complains that scaleFactor is not available
@@ -32,13 +29,12 @@ class PausedView: UIView {
         hide()
     }
 
-
     func show() {
         hidden = false
         
         UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
             self.transform = CGAffineTransformRotate(self.largeTransform, CGFloat(0))
-            }, completion: nil )
+        }, completion: nil )
     }
     
     func hide() {
@@ -46,6 +42,7 @@ class PausedView: UIView {
             self.transform = CGAffineTransformRotate(self.smallTransform, CGFloat(0))
             }, completion: { success in
                 self.hidden = true
-        })            
+            }
+        )
     }
 }
