@@ -29,7 +29,7 @@ class Game {
     
     func reset() {
         for player in players {
-            player.secondsRemaining = initialTimeInSeconds
+            player.secondsRemaining.value = player.initialTimeInSeconds
         }
 
         setPlayerToActive(.Top)

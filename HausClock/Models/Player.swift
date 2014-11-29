@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ReactiveCocoa
 
 enum PlayerPosition {
     case Top
@@ -29,19 +30,22 @@ enum PlayerState {
 }
 
 class Player {
+    let initialTimeInSeconds:Double = 20.0
+
     let position: PlayerPosition
     var state = PlayerState.Waiting
-    var secondsRemaining = initialTimeInSeconds
+    var secondsRemaining: ObservableProperty<Double>
     
     init(position:PlayerPosition) {
         self.position = position
+        self.secondsRemaining = ObservableProperty(initialTimeInSeconds)
     }
     
     // TODO: Where does one normally put formatting utility functions?
     func secondsRemainingAsString() -> String {
         
-        let minutes = Int(secondsRemaining)/60
-        let seconds = Int(secondsRemaining) % 60
+        let minutes = Int(secondsRemaining.value)/60
+        let seconds = Int(secondsRemaining.value) % 60
         let spacer = seconds < 10 ? "0" : ""
         return "\(minutes):\(spacer)\(seconds)"
     }

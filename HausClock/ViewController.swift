@@ -8,16 +8,14 @@
 
 import UIKit
 import Darwin
+import ReactiveCocoa
 
 // @Jack where do models and enums like to live?
 
-let clockTickInterval = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
-let initialTimeInSeconds = 20.0
-
+let clockTickInterval:Double = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
 
 class ViewController: UIViewController {
 
-    
     var game = Game()
     
     @IBOutlet weak var pausedView: PausedView!
@@ -79,9 +77,9 @@ class ViewController: UIViewController {
     // Decrements the active player if one is available. If the player has lost, changes the player state
     func decrementActivePlayer() {
         if var activePlayer = game.getActivePlayer() {
-            activePlayer.secondsRemaining -= clockTickInterval
+            activePlayer.secondsRemaining.value -= clockTickInterval
             
-            if activePlayer.secondsRemaining <= 0 {
+            if activePlayer.secondsRemaining.value <= 0 {
                 game.state = .Finished
             }
             updateTimeViews()
