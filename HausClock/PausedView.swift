@@ -12,26 +12,40 @@ import UIKit
 @IBDesignable
 class PausedView: UIView {
 
+    
     let scaleFactor = CGFloat(224.0/107.0) // The view starts out small and grows to 224 px
+    let largeTransform: CGAffineTransform
+    let smallTransform: CGAffineTransform
+    
+    
     
     required init(coder aDecoder: NSCoder) {
+        // It would be nice to be able to initialize these constants earlier, but swift complains that scaleFactor is not available
+        self.largeTransform = CGAffineTransformIdentity
+        self.smallTransform = CGAffineTransformScale(CGAffineTransformIdentity, 1/scaleFactor, 1/scaleFactor)
+        
         super.init(coder: aDecoder)
-        self.opaque = false
-        self.backgroundColor = UIKit.UIColor(white: 1.0, alpha: 0.0)
-        self.hidden = true
+        
+        opaque = false
+        backgroundColor = UIKit.UIColor(white: 1.0, alpha: 0.0)
+        
+        hide()
     }
 
 
     func show() {
-        self.transform = CGAffineTransformScale(self.transform, 1/scaleFactor, 1/scaleFactor)
-        self.hidden = false
+        hidden = false
         
         UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
-            self.transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(0))
+            self.transform = CGAffineTransformRotate(self.largeTransform, CGFloat(0))
             }, completion: nil )
     }
     
     func hide() {
-        self.hidden = true
+        UIView.animateWithDuration(0.05, delay: 0.0, options: .CurveEaseInOut, animations: {
+            self.transform = CGAffineTransformRotate(self.smallTransform, CGFloat(0))
+            }, completion: { success in
+                self.hidden = true
+        })            
     }
 }

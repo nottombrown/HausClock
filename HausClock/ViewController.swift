@@ -59,40 +59,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func touchPauseButton(sender: UIButton) {
-        pausedView.show()
-        gameState = .Paused
-    }
-    
-    @IBAction func shrinkPauseButton(sender: AnyObject) {
-        UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
-            self.pauseButton.transform = CGAffineTransformScale(CGAffineTransformIdentity, CGFloat(0.8), CGFloat(0.8))
-        }, completion: nil)
-    }
-  
-    @IBAction func expandPauseButton(sender: AnyObject) {
-        UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
-            self.pauseButton.transform = CGAffineTransformIdentity
-        }, completion: nil )
-    }
-
     @IBAction func touchTopButton(sender: UIButton) {
         setPlayerToActive(.Bottom)
     }
     
     @IBAction func touchBottomButton(sender: UIButton) {
         setPlayerToActive(.Top)
-    }
-    
-    @IBAction func touchResumeButton(sender: AnyObject) {
-        pausedView.hide()
-        gameState = .Active
-    }
-    
-    @IBAction func touchResetButton(sender: AnyObject) {
-        resetGameState()
-        pausedView.hide()
     }
     
     func getPlayerByPosition(position: PlayerPosition) -> Player {
@@ -141,6 +113,37 @@ class ViewController: UIViewController {
             }
             updateTimeViews()
         }
+    }
+}
+
+// Pausing and resuming the game
+extension ViewController {
+    
+    @IBAction func touchPauseButton(sender: UIButton) {
+        pausedView.show()
+        gameState = .Paused
+    }
+    
+    @IBAction func shrinkPauseButton(sender: AnyObject) {
+        UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
+            self.pauseButton.transform = CGAffineTransformScale(CGAffineTransformIdentity, CGFloat(0.8), CGFloat(0.8))
+            }, completion: nil)
+    }
+    
+    @IBAction func expandPauseButton(sender: AnyObject) {
+        UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
+            self.pauseButton.transform = CGAffineTransformIdentity
+            }, completion: nil )
+    }
+    
+    @IBAction func touchResumeButton(sender: AnyObject) {
+        pausedView.hide()
+        gameState = .Active
+    }
+    
+    @IBAction func touchResetButton(sender: AnyObject) {
+        resetGameState()
+        pausedView.hide()
     }
 }
 
