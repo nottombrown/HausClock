@@ -30,9 +30,6 @@ class ViewController: UIViewController {
         
         NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         
-        updateTimeViews() // TODO: Use observer for all these calls
-        
-        
         topTimeView.observePlayer(game.getPlayerByPosition(.Top))
         bottomTimeView.observePlayer(game.getPlayerByPosition(.Bottom))
     }
@@ -51,17 +48,10 @@ class ViewController: UIViewController {
     }
     @IBAction func touchTopButton(sender: UIButton) {
         game.setPlayerToActive(.Bottom)
-        updateTimeViews() // TODO: Use observer for all these calls
     }
     
     @IBAction func touchBottomButton(sender: UIButton) {
         game.setPlayerToActive(.Top)
-        updateTimeViews() // TODO: Use observer for all these calls
-    }
-    
-    func updateTimeViews() {
-        // TODO: Replace this call with Observer pattern
-
     }
     
     func onClockTick() {
@@ -83,7 +73,6 @@ class ViewController: UIViewController {
             if activePlayer.secondsRemaining.value <= 0 {
                 game.state = .Finished
             }
-            updateTimeViews()
         }
     }
 }
