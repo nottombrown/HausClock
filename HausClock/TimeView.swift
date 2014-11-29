@@ -35,7 +35,7 @@ class TimeView: UIView {
         switch player.state {
         case .Active:
             // hide the black button so that the pulsating background shows through. 
-            // HACK: less than 0.05 opacity makes the button unclickable
+            // HACK: less than 0.05 opacity makes the button unclickable for some reason
             button.layer.opacity = 0.05
             label.textColor = Colors.blackColor
         case .Waiting:
