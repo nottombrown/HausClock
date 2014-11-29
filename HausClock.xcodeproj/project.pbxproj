@@ -145,9 +145,9 @@
 				82D156961973665400DD9ABD /* ViewController.swift */,
 				825C27B819738200008D8331 /* UIColorExtension.swift */,
 				82D156981973665400DD9ABD /* Main.storyboard */,
+				82FDF6DA1A1C5BBE007206AE /* ButtonWithCustomDragBounds.swift */,
 				82F39E661A171E9100678133 /* Resources */,
 				82D156921973665400DD9ABD /* Supporting Files */,
-				82FDF6DA1A1C5BBE007206AE /* ButtonWithCustomDragBounds.swift */,
 			);
 			path = HausClock;
 			sourceTree = "<group>";
