@@ -23,13 +23,18 @@ class TimeView: UIView {
     
     func updateWithViewModel(player: Player){
         setFont()
+        
+        button.backgroundColor = Colors.blackColor
+        
         // Set colors
         switch player.state {
         case .Active:
-            button.backgroundColor = Colors.blueColor
+            // hide the black button so that the pulsating background shows through. 
+            // HACK: less than 0.05 opacity makes the button unclickable
+            button.layer.opacity = 0.05
             label.textColor = Colors.blackColor
         case .Waiting:
-            button.backgroundColor = Colors.blackColor
+            button.layer.opacity = 1.0
             label.textColor = Colors.whiteColor
         }
         
