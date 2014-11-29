@@ -12,53 +12,9 @@ import Dollar
 
 // @Jack where do models and enums like to live?
 
-enum PlayerPosition {
-    case Top
-    case Bottom
-
-    func opposite() -> PlayerPosition {
-        // Is there a less verbose way? This seems like a common case
-        switch self {
-        case .Top:
-            return .Bottom
-        case .Bottom:
-            return .Top
-        }
-    }
-}
-
-enum PlayerState {
-    case Active
-    case Waiting
-}
-
-enum GameState {
-    case Active
-    case Paused
-    case Finished
-}
-
 let clockTickInterval = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
 let initialTimeInSeconds = 20.0
 
-class Player {
-    let position: PlayerPosition
-    var state = PlayerState.Waiting
-    var secondsRemaining = initialTimeInSeconds
-    
-    init(position:PlayerPosition) {
-        self.position = position
-    }
-
-    // TODO: Where does one normally put formatting utility functions?
-    func secondsRemainingAsString() -> String {
-        
-        let minutes = Int(secondsRemaining)/60
-        let seconds = Int(secondsRemaining) % 60
-        let spacer = seconds < 10 ? "0" : ""
-        return "\(minutes):\(spacer)\(seconds)"
-    }
-}
 
 class ViewController: UIViewController {
     var players = [
@@ -144,7 +100,7 @@ class ViewController: UIViewController {
     }
     
     func getActivePlayer() -> Player? {
-        return $.find(players, { $0.state == .Active } )!
+        return $.find(players, { $0.state == PlayerState.Active } )!
     }
 
     func setPlayerToActive(position: PlayerPosition) {
