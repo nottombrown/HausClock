@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         case .Active:
             decrementActivePlayer()
         case .Finished:
-            decrementActivePlayer()
+            break
         case .Paused:
             break
         }
