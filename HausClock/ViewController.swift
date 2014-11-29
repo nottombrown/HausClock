@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var topTimeView: TimeView!
     @IBOutlet weak var bottomTimeView: TimeView!
     @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var pulsatingBackgroundView: PulsatingBackgroundView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +123,7 @@ extension ViewController {
     @IBAction func touchPauseButton(sender: UIButton) {
         pausedView.show()
         gameState = .Paused
+        pulsatingBackgroundView.pauseAnimation() // TODO: Use observers instead
     }
     
     @IBAction func shrinkPauseButton(sender: AnyObject) {
@@ -139,6 +141,7 @@ extension ViewController {
     @IBAction func touchResumeButton(sender: AnyObject) {
         pausedView.hide()
         gameState = .Active
+        pulsatingBackgroundView.resumeAnimation()
     }
     
     @IBAction func touchResetButton(sender: AnyObject) {

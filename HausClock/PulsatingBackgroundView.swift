@@ -13,7 +13,7 @@ import UIKit
 class PulsatingBackgroundView: UIView {
     
     let pulseDuration = 0.5
-    let pulseDimming = 0.6
+    let pulseDimming = 0.60
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -31,5 +31,23 @@ class PulsatingBackgroundView: UIView {
         UIView.animateWithDuration(pulseDuration, delay: 0.0, options: .CurveEaseInOut | .AllowUserInteraction, animations: {
             self.layer.opacity = 1.0
             }, completion: pulseOut )
+    }
+    
+    func pauseAnimation(){
+        pausedTime = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+        layer.speed = 0.0
+        layer.timeOffset = pausedTime!
+    }
+    
+    private var pausedTime: CFTimeInterval?
+
+    func resumeAnimation(){
+        if var pausedTime = pausedTime? {
+            layer.speed = 1.0
+            layer.timeOffset = 0.0
+            layer.beginTime = 0.0
+            let timeSincePause = layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pausedTime
+            layer.beginTime = timeSincePause
+        }
     }
 }

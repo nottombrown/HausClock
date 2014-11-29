@@ -309,6 +309,7 @@
                         <outlet property="bottomTimeView" destination="Ctr-QT-iPN" id="AKr-Js-6zI"/>
                         <outlet property="pauseButton" destination="4zC-Qw-67g" id="pWw-NK-lbV"/>
                         <outlet property="pausedView" destination="K8T-QB-ikT" id="jXz-Jn-eHF"/>
+                        <outlet property="pulsatingBackgroundView" destination="asf-yp-i81" id="mcr-6F-snH"/>
                         <outlet property="topTimeView" destination="YXj-e3-wTM" id="oRd-uH-5Ff"/>
                     </connections>
                 </viewController>
