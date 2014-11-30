@@ -31,7 +31,7 @@ class Player {
         }
     }
     
-    let initialTimeInSeconds:Double = 20.0
+    let initialTimeInSeconds:Double = 600.0
     let position: Position
     var state: ObservableProperty<State> = ObservableProperty(.Waiting)
     var secondsRemaining: ObservableProperty<Double>

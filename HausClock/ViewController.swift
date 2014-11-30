@@ -12,8 +12,6 @@ import ReactiveCocoa
 
 class ViewController: UIViewController {
 
-    var game = Game()
-    
     @IBOutlet weak var pausedView: PausedView!
     @IBOutlet weak var topTimeView: TimeView!
     @IBOutlet weak var bottomTimeView: TimeView!

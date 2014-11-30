@@ -11,6 +11,8 @@ import Dollar
 import ReactiveCocoa
 import AudioToolbox
 
+var game = Game() // Global game instance - Is there a canonical way to do this?
+
 class Game {
     
     enum State {
@@ -27,9 +29,13 @@ class Game {
         NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         reset()
         
-        // Buzz once when the game finishes
-        let finishedGameStream = state.values().skipRepeats{ $0 == $1}.filter { $0 == Game.State.Finished }
-        finishedGameStream.start { _ in AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate)) }
+        // Buzz when the game finishes
+        let finishedStream = state.values().skipRepeats{ $0 == $1}.filter { $0 == Game.State.Finished }
+        
+        // TODO: It seems that the concatenation doesn't join correctly. Perhaps we want merge?
+        // let delayedStream = finishedStream.delay(3.0, onScheduler: MainScheduler())
+        // let doubledStream = delayedStream.concat(finishedStream)
+        finishedStream.start { _ in AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate)) }
     }
     
     var players = [
