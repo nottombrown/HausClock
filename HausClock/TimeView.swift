@@ -21,7 +21,6 @@ class TimeView: UIView {
     }
     
     func onReady() {
-        // @jack: Where do you put View things that need to happen after viewDidLoad()?
         button.backgroundColor = Colors.blackColor
         
         // Is there a way to set this font globally or in IB?
@@ -30,9 +29,8 @@ class TimeView: UIView {
     
     // TODO: is there a canonical RAC name for this observer setup method?
     func observe(player: Player) {
-        player.secondsRemaining.values().start { _ in
-            // TODO: we could have another signal that's stringified for less processing
-            self.label.text = player.secondsRemainingAsString()
+        player.secondsRemainingAsStringStream.start { string in
+            self.label.text = string
         }
         
         player.state.values().start { state in

@@ -36,15 +36,20 @@ class Player {
     var state: ObservableProperty<PlayerState>
     var secondsRemaining: ObservableProperty<Double>
     
+    var secondsRemainingAsStringStream: ColdSignal<String>
+    
     init(position:PlayerPosition) {
         self.position = position
         self.secondsRemaining = ObservableProperty(initialTimeInSeconds)
         state = ObservableProperty(PlayerState.Waiting)
+        
+        // Convert the seconds remaining into a stream and skip the repeats
+        secondsRemainingAsStringStream = secondsRemaining.values().map(Player.formatSecondsRemainingAsString).skipRepeats{ $0 == $1 }
     }
-    
-    func secondsRemainingAsString() -> String {
-        let minutes = Int(secondsRemaining.value)/60
-        let seconds = Int(secondsRemaining.value) % 60
+
+    private class func formatSecondsRemainingAsString(seconds: Double) -> String {
+        let minutes = Int(seconds)/60
+        let seconds = Int(seconds) % 60
         let spacer = seconds < 10 ? "0" : ""
         return "\(minutes):\(spacer)\(seconds)"
     }
