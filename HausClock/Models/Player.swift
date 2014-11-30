@@ -9,21 +9,6 @@
 import Foundation
 import ReactiveCocoa
 
-enum PlayerPosition {
-    case Top
-    case Bottom
-    
-    func opposite() -> PlayerPosition {
-        // Is there a less verbose way? This seems like a common case
-        switch self {
-        case .Top:
-            return .Bottom
-        case .Bottom:
-            return .Top
-        }
-    }
-}
-
 class Player {
 
     enum State {
@@ -31,16 +16,30 @@ class Player {
         case Waiting
     }
 
+    enum Position {
+        case Top
+        case Bottom
+        
+        func opposite() -> Position {
+            // Is there a less verbose way? This seems like a common case
+            switch self {
+            case .Top:
+                return .Bottom
+            case .Bottom:
+                return .Top
+            }
+        }
+    }
     
     let initialTimeInSeconds:Double = 20.0
 
-    let position: PlayerPosition
+    let position: Position
     var state: ObservableProperty<State>
     var secondsRemaining: ObservableProperty<Double>
     
     var secondsRemainingAsStringStream: ColdSignal<String>
     
-    init(position:PlayerPosition) {
+    init(position:Position) {
         self.position = position
         self.secondsRemaining = ObservableProperty(initialTimeInSeconds)
         state = ObservableProperty(State.Waiting)

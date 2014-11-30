@@ -43,7 +43,7 @@ class Game {
         state.value = .Initial
     }
     
-    func userDidTouchButton(position: PlayerPosition) {
+    func userDidTouchButton(position: Player.Position) {
         switch state.value {
         case .Initial, .Active:
             setPlayerToActive(position)
@@ -52,7 +52,7 @@ class Game {
         }
     }
     
-    func setPlayerToActive(position: PlayerPosition) {
+    func setPlayerToActive(position: Player.Position) {
         var activePlayer = getPlayerByPosition(position)
         var inactivePlayer = getPlayerByPosition(position.opposite())
         
@@ -61,7 +61,7 @@ class Game {
         state.value = .Active
     }
     
-    func getPlayerByPosition(position: PlayerPosition) -> Player {
+    func getPlayerByPosition(position: Player.Position) -> Player {
         return $.find(players, { $0.position == position } )!
     }
     
