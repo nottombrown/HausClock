@@ -24,16 +24,18 @@ enum PlayerPosition {
     }
 }
 
-enum PlayerState {
-    case Active
-    case Waiting
-}
-
 class Player {
+
+    enum State {
+        case Active
+        case Waiting
+    }
+
+    
     let initialTimeInSeconds:Double = 20.0
 
     let position: PlayerPosition
-    var state: ObservableProperty<PlayerState>
+    var state: ObservableProperty<State>
     var secondsRemaining: ObservableProperty<Double>
     
     var secondsRemainingAsStringStream: ColdSignal<String>
@@ -41,7 +43,7 @@ class Player {
     init(position:PlayerPosition) {
         self.position = position
         self.secondsRemaining = ObservableProperty(initialTimeInSeconds)
-        state = ObservableProperty(PlayerState.Waiting)
+        state = ObservableProperty(State.Waiting)
         
         // Convert the seconds remaining into a stream and skip the repeats
         secondsRemainingAsStringStream = secondsRemaining.values().map(Player.formatSecondsRemainingAsString).skipRepeats{ $0 == $1 }

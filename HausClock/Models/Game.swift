@@ -11,19 +11,20 @@ import Dollar
 import ReactiveCocoa
 import AudioToolbox
 
-enum GameState {
-    case Initial // The game hasn't started yet
-    case Active
-    case Paused
-    case Finished
-}
-
 class Game {
-    var state: ObservableProperty<GameState>
+    
+    enum State {
+        case Initial // The game hasn't started yet
+        case Active
+        case Paused
+        case Finished
+    }
+    
+    var state: ObservableProperty<State>
     let clockTickInterval:Double = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
     
     init() {
-        state = ObservableProperty(GameState.Initial)
+        state = ObservableProperty(.Initial)
         NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         reset()
     }
@@ -65,7 +66,7 @@ class Game {
     }
     
     func getActivePlayer() -> Player? {
-        return $.find(players, { $0.state.value == PlayerState.Active } )!
+        return $.find(players, { $0.state.value == Player.State.Active } )!
     }
     
     @objc func onClockTick() {

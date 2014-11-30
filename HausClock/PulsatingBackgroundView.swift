@@ -23,7 +23,7 @@ class PulsatingBackgroundView: UIView {
     
     func observe(game: Game) {
         game.state.values().skipRepeats{ $0 == $1}.start { state in
-            (state == GameState.Active) ? self.resumeAnimation() : self.pauseAnimation()
+            (state == Game.State.Active) ? self.resumeAnimation() : self.pauseAnimation()
         }
     }
     
