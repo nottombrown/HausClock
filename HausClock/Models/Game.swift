@@ -9,6 +9,7 @@
 import Foundation
 import Dollar
 import ReactiveCocoa
+import AudioToolbox
 
 enum GameState {
     case Active
@@ -62,7 +63,7 @@ class Game {
         case .Active:
             decrementActivePlayer()
         case .Finished:
-            break
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
         case .Paused:
             break
         }
