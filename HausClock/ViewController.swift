@@ -25,7 +25,18 @@ class ViewController: UIViewController {
         topTimeView.observe(game.getPlayerByPosition(.Top))
         bottomTimeView.observe(game.getPlayerByPosition(.Bottom))
         
+        observe()
         pulsatingBackgroundView.observe(game)
+    }
+    
+    func observe() {
+        let gameStateStream = game.state.values().start { state in
+            if (state == .Paused) {
+                self.pausedView.show()
+            } else {
+                self.pausedView.hide()
+            }
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -40,6 +51,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func touchTopButton(sender: UIButton) {
         game.userDidTouchButton(.Bottom)
     }
@@ -47,17 +59,21 @@ class ViewController: UIViewController {
     @IBAction func touchBottomButton(sender: UIButton) {
         game.userDidTouchButton(.Top)
     }
-}
-
-// Pausing and resuming the game
-extension ViewController {
     
     @IBAction func touchPauseButton(sender: UIButton) {
-        pausedView.show()
         game.state.value = .Paused
-        pulsatingBackgroundView.pauseAnimation() // TODO: Use observers instead
     }
     
+    // Pause screen buttons
+    @IBAction func touchResumeButton(sender: AnyObject) {
+        game.state.value = .Active
+    }
+    
+    @IBAction func touchResetButton(sender: AnyObject) {
+        game.reset()
+    }
+    
+    // Pretty animation on touching the pause button
     @IBAction func shrinkPauseButton(sender: AnyObject) {
         UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
             self.pauseButton.transform = CGAffineTransformScale(CGAffineTransformIdentity, CGFloat(0.8), CGFloat(0.8))
@@ -68,17 +84,6 @@ extension ViewController {
         UIView.animateWithDuration(0.15, delay: 0.0, options: .CurveEaseInOut, animations: {
             self.pauseButton.transform = CGAffineTransformIdentity
             }, completion: nil )
-    }
-    
-    @IBAction func touchResumeButton(sender: AnyObject) {
-        pausedView.hide()
-        game.state.value = .Active
-        pulsatingBackgroundView.resumeAnimation()
-    }
-    
-    @IBAction func touchResetButton(sender: AnyObject) {
-        game.reset()
-        pausedView.hide()
     }
 }
 
