@@ -12,6 +12,7 @@ import ReactiveCocoa
 import AudioToolbox
 
 enum GameState {
+    case Initial // The game hasn't started yet
     case Active
     case Paused
     case Finished
@@ -22,7 +23,7 @@ class Game {
     let clockTickInterval:Double = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
     
     init() {
-        state = ObservableProperty(GameState.Paused)
+        state = ObservableProperty(GameState.Initial)
         NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         reset()
     }
@@ -38,7 +39,16 @@ class Game {
         }
 
         setPlayerToActive(.Top)
-        state.value = .Paused
+        state.value = .Initial
+    }
+    
+    func userDidTouchButton(position: PlayerPosition) {
+        switch state.value {
+        case .Initial, .Active:
+            setPlayerToActive(position)
+        case .Finished, .Paused:
+            break
+        }
     }
     
     func setPlayerToActive(position: PlayerPosition) {
@@ -64,7 +74,7 @@ class Game {
             decrementActivePlayer()
         case .Finished:
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-        case .Paused:
+        case .Initial, .Paused:
             break
         }
     }

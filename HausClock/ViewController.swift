@@ -43,11 +43,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func touchTopButton(sender: UIButton) {
-        game.setPlayerToActive(.Bottom)
+        game.userDidTouchButton(.Bottom)
     }
     
     @IBAction func touchBottomButton(sender: UIButton) {
-        game.setPlayerToActive(.Top)
+        game.userDidTouchButton(.Top)
     }
 }
 
