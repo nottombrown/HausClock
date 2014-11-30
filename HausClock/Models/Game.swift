@@ -20,13 +20,16 @@ class Game {
         case Finished
     }
     
-    var state: ObservableProperty<State>
+    var state: ObservableProperty<State> = ObservableProperty(.Initial)
     let clockTickInterval:Double = 0.1 // This currently causes massive re-rendering. Should only update text as necessary
     
     init() {
-        state = ObservableProperty(.Initial)
         NSTimer.scheduledTimerWithTimeInterval(clockTickInterval, target: self, selector: Selector("onClockTick"), userInfo: nil, repeats: true)
         reset()
+        
+        // Buzz once when the game finishes
+        let finishedGameStream = state.values().skipRepeats{ $0 == $1}.filter { $0 == Game.State.Finished }
+        finishedGameStream.start { _ in AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate)) }
     }
     
     var players = [
@@ -52,7 +55,11 @@ class Game {
         }
     }
     
-    func setPlayerToActive(position: Player.Position) {
+    func getPlayerByPosition(position: Player.Position) -> Player {
+        return $.find(players, { $0.position == position } )!
+    }
+    
+    private func setPlayerToActive(position: Player.Position) {
         var activePlayer = getPlayerByPosition(position)
         var inactivePlayer = getPlayerByPosition(position.opposite())
         
@@ -61,27 +68,18 @@ class Game {
         state.value = .Active
     }
     
-    func getPlayerByPosition(position: Player.Position) -> Player {
-        return $.find(players, { $0.position == position } )!
-    }
-    
-    func getActivePlayer() -> Player? {
+    private func getActivePlayer() -> Player? {
         return $.find(players, { $0.state.value == Player.State.Active } )!
     }
     
-    @objc func onClockTick() {
-        switch state.value {
-        case .Active:
+    @objc private func onClockTick() {
+        if state.value == .Active {
             decrementActivePlayer()
-        case .Finished:
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-        case .Initial, .Paused:
-            break
         }
     }
     
     // Decrements the active player if one is available. If the player has lost, changes the player state
-    func decrementActivePlayer() {
+    private func decrementActivePlayer() {
         if var activePlayer = getActivePlayer() {
             activePlayer.secondsRemaining.value -= clockTickInterval
             

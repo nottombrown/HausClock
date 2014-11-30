@@ -32,17 +32,14 @@ class Player {
     }
     
     let initialTimeInSeconds:Double = 20.0
-
     let position: Position
-    var state: ObservableProperty<State>
+    var state: ObservableProperty<State> = ObservableProperty(.Waiting)
     var secondsRemaining: ObservableProperty<Double>
-    
     var secondsRemainingAsStringStream: ColdSignal<String>
     
     init(position:Position) {
         self.position = position
-        self.secondsRemaining = ObservableProperty(initialTimeInSeconds)
-        state = ObservableProperty(State.Waiting)
+        secondsRemaining = ObservableProperty(initialTimeInSeconds)
         
         // Convert the seconds remaining into a stream and skip the repeats
         secondsRemainingAsStringStream = secondsRemaining.values().map(Player.formatSecondsRemainingAsString).skipRepeats{ $0 == $1 }
