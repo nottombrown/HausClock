@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="PaG-xD-Iw7">
+            <objects>
+                <viewController id="Dtk-0l-AMR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wtD-cZ-vfr"/>
+                        <viewControllerLayoutGuide type="bottom" id="4hC-QT-fKq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dui-fW-2JY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tj-qO-GW4" userLabel="BottomView">
+                                <rect key="frame" x="0.0" y="-600" width="600" height="1200"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J37-QI-xJm">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <color key="backgroundColor" red="0.56862745100000001" green="0.76862745099999996" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiT-Hj-YHG" userLabel="Pause Button" customClass="ButtonWithCustomDragBounds" customModule="HausClock" customModuleProvider="target">
+                                <rect key="frame" x="246" y="247" width="107" height="107"/>
+                                <state key="normal" backgroundImage="pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="J37-QI-xJm" firstAttribute="height" secondItem="dui-fW-2JY" secondAttribute="height" multiplier="0.5" id="ERM-8m-2Vd"/>
+                            <constraint firstAttribute="centerY" secondItem="PiT-Hj-YHG" secondAttribute="centerY" constant="-0.5" id="JPY-Td-IY2"/>
+                            <constraint firstAttribute="centerX" secondItem="PiT-Hj-YHG" secondAttribute="centerX" constant="0.5" id="NC7-AM-j4c"/>
+                            <constraint firstItem="J37-QI-xJm" firstAttribute="width" secondItem="dui-fW-2JY" secondAttribute="width" id="R8o-hq-MDa"/>
+                            <constraint firstItem="4hC-QT-fKq" firstAttribute="top" secondItem="9tj-qO-GW4" secondAttribute="bottom" id="RIZ-9V-1fw"/>
+                            <constraint firstAttribute="width" secondItem="9tj-qO-GW4" secondAttribute="width" id="Xjc-WT-ME6"/>
+                            <constraint firstAttribute="height" secondItem="9tj-qO-GW4" secondAttribute="height" multiplier="0.5" id="cg3-cj-7x8"/>
+                            <constraint firstAttribute="centerX" secondItem="9tj-qO-GW4" secondAttribute="centerX" id="jwq-9Z-zo0"/>
+                            <constraint firstItem="J37-QI-xJm" firstAttribute="top" secondItem="dui-fW-2JY" secondAttribute="topMargin" id="mjf-pA-Bak"/>
+                            <constraint firstItem="4hC-QT-fKq" firstAttribute="top" secondItem="9tj-qO-GW4" secondAttribute="bottom" id="oxL-VY-WGJ"/>
+                            <constraint firstAttribute="centerX" secondItem="J37-QI-xJm" secondAttribute="centerX" id="vLq-o8-SB9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="oxL-VY-WGJ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mDV-CP-OKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="441" y="399"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pause" width="107" height="107"/>
+    </resources>
+</document>

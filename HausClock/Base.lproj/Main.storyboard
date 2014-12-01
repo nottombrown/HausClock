@@ -26,9 +26,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asf-yp-i81" userLabel="Pulsating Background View" customClass="PulsatingBackgroundView" customModule="HausClock" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.56862745100000001" green="0.76862745099999996" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="100" y="200" width="200" height="400"/>
-                                </variation>
                             </view>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctr-QT-iPN" userLabel="Bottom Time View" customClass="TimeView" customModule="HausClock" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -254,18 +251,18 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Ctr-QT-iPN" secondAttribute="centerX" id="0Yn-Yn-Q6N"/>
                             <constraint firstItem="YXj-e3-wTM" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.5" id="13O-PG-UMt"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Ctr-QT-iPN" secondAttribute="bottom" id="JMQ-vo-UcB"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Ctr-QT-iPN" secondAttribute="bottom" id="1iT-f6-KKB"/>
                             <constraint firstItem="YXj-e3-wTM" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="LPd-13-fOo"/>
                             <constraint firstItem="asf-yp-i81" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="Pff-Mk-5xE"/>
                             <constraint firstItem="Ctr-QT-iPN" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.5" id="UBK-zW-FYJ"/>
                             <constraint firstItem="Ctr-QT-iPN" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="UP6-4e-lbJ"/>
                             <constraint firstAttribute="centerX" secondItem="4zC-Qw-67g" secondAttribute="centerX" id="UZR-KG-Re0"/>
                             <constraint firstAttribute="centerY" secondItem="K8T-QB-ikT" secondAttribute="centerY" id="VSk-aU-n3D"/>
-                            <constraint firstItem="YXj-e3-wTM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="top" id="Vls-ex-BRC"/>
                             <constraint firstItem="asf-yp-i81" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="ag6-Wr-PD4"/>
                             <constraint firstAttribute="centerX" secondItem="YXj-e3-wTM" secondAttribute="centerX" id="cNk-JH-gAl">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="YXj-e3-wTM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="top" id="jWG-6l-XOP"/>
                             <constraint firstAttribute="centerY" secondItem="4zC-Qw-67g" secondAttribute="centerY" id="uOo-LF-px0"/>
                             <constraint firstAttribute="centerX" secondItem="K8T-QB-ikT" secondAttribute="centerX" id="vS8-Ns-YmC"/>
                         </constraints>
@@ -293,7 +290,6 @@
                             <mask key="constraints">
                                 <include reference="13O-PG-UMt"/>
                                 <include reference="LPd-13-fOo"/>
-                                <include reference="Vls-ex-BRC"/>
                                 <include reference="cNk-JH-gAl"/>
                                 <include reference="Pff-Mk-5xE"/>
                                 <include reference="ag6-Wr-PD4"/>
@@ -304,7 +300,6 @@
                                 <include reference="0Yn-Yn-Q6N"/>
                                 <include reference="UBK-zW-FYJ"/>
                                 <include reference="UP6-4e-lbJ"/>
-                                <include reference="JMQ-vo-UcB"/>
                             </mask>
                         </variation>
                     </view>
