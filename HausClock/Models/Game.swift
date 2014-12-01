@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Dollar
 import ReactiveCocoa
 import AudioToolbox
 
@@ -62,7 +61,7 @@ class Game {
     }
     
     func getPlayerByPosition(position: Player.Position) -> Player {
-        return $.find(players, { $0.position == position } )!
+        return players.filter{ $0.position == position }.first!
     }
     
     private func setPlayerToActive(position: Player.Position) {
@@ -75,7 +74,7 @@ class Game {
     }
     
     private func getActivePlayer() -> Player? {
-        return $.find(players, { $0.state.value == Player.State.Active } )!
+        return players.filter{ $0.state.value == Player.State.Active }.first
     }
     
     @objc private func onClockTick() {

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		82017D0019F7723700877960 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82017CFF19F7723700877960 /* TimeView.swift */; };
-		820F36D51A1C6C7200551B12 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FDF6CC1A1B4566007206AE /* Dollar.framework */; };
-		820F36D61A1C6C7200551B12 /* Dollar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82FDF6CC1A1B4566007206AE /* Dollar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		820F36DC1A294F0400551B12 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36DB1A294F0400551B12 /* Player.swift */; };
 		820F36E01A29500100551B12 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36DF1A29500100551B12 /* Game.swift */; };
 		820F36E31A2995ED00551B12 /* PulsatingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F36E21A2995ED00551B12 /* PulsatingBackgroundView.swift */; };
@@ -31,13 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		820F36D71A1C6C7200551B12 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82FDF6C61A1B4566007206AE /* Dollar.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 92E0D03B19467C67002ACC3D;
-			remoteInfo = Dollar;
-		};
 		820F37141A29AB5000551B12 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 820F370C1A29AB5000551B12 /* ReactiveCocoa.xcodeproj */;
@@ -115,20 +106,6 @@
 			remoteGlobalIDString = 82D1568E1973665400DD9ABD;
 			remoteInfo = HausClock;
 		};
-		82FDF6CB1A1B4566007206AE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82FDF6C61A1B4566007206AE /* Dollar.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92E0D03C19467C67002ACC3D;
-			remoteInfo = Dollar;
-		};
-		82FDF6CD1A1B4566007206AE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82FDF6C61A1B4566007206AE /* Dollar.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92E6686F19F09C6400BB4FB8;
-			remoteInfo = DollarTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -138,7 +115,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				820F36D61A1C6C7200551B12 /* Dollar.framework in Embed Frameworks */,
 				824DFD031A29BA2D001002B2 /* ReactiveCocoa.framework in Embed Frameworks */,
 				824DFCEA1A29B8D9001002B2 /* LlamaKit.framework in Embed Frameworks */,
 			);
@@ -168,7 +144,6 @@
 		82D156A61973665400DD9ABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82D156A71973665400DD9ABD /* HausClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HausClockTests.swift; sourceTree = "<group>"; };
 		82F39E6B1A172F9500678133 /* InterstateMonoBlk.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = InterstateMonoBlk.ttf; path = Resources/InterstateMonoBlk.ttf; sourceTree = "<group>"; };
-		82FDF6C61A1B4566007206AE /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		82FDF6DA1A1C5BBE007206AE /* ButtonWithCustomDragBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithCustomDragBounds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,7 +152,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				820F36D51A1C6C7200551B12 /* Dollar.framework in Frameworks */,
 				824DFD021A29BA2D001002B2 /* ReactiveCocoa.framework in Frameworks */,
 				824DFCE91A29B8D9001002B2 /* LlamaKit.framework in Frameworks */,
 			);
@@ -229,7 +203,6 @@
 			children = (
 				824DFCDA1A29B8BC001002B2 /* LlamaKit.xcodeproj */,
 				820F370C1A29AB5000551B12 /* ReactiveCocoa.xcodeproj */,
-				82FDF6C61A1B4566007206AE /* Dollar.xcodeproj */,
 				82D156911973665400DD9ABD /* HausClock */,
 				82D156A41973665400DD9ABD /* HausClockTests */,
 				82D156901973665400DD9ABD /* Products */,
@@ -299,15 +272,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		82FDF6C71A1B4566007206AE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				82FDF6CC1A1B4566007206AE /* Dollar.framework */,
-				82FDF6CE1A1B4566007206AE /* DollarTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -323,7 +287,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				820F36D81A1C6C7200551B12 /* PBXTargetDependency */,
 				824DFCEC1A29B8D9001002B2 /* PBXTargetDependency */,
 				824DFD051A29BA2D001002B2 /* PBXTargetDependency */,
 			);
@@ -381,10 +344,6 @@
 			productRefGroup = 82D156901973665400DD9ABD /* Products */;
 			projectDirPath = "";
 			projectReferences = (
-				{
-					ProductGroup = 82FDF6C71A1B4566007206AE /* Products */;
-					ProjectRef = 82FDF6C61A1B4566007206AE /* Dollar.xcodeproj */;
-				},
 				{
 					ProductGroup = 824DFCDB1A29B8BC001002B2 /* Products */;
 					ProjectRef = 824DFCDA1A29B8BC001002B2 /* LlamaKit.xcodeproj */;
@@ -459,20 +418,6 @@
 			remoteRef = 824DFCE71A29B8BC001002B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		82FDF6CC1A1B4566007206AE /* Dollar.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Dollar.framework;
-			remoteRef = 82FDF6CB1A1B4566007206AE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		82FDF6CE1A1B4566007206AE /* DollarTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DollarTests.xctest;
-			remoteRef = 82FDF6CD1A1B4566007206AE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -525,11 +470,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		820F36D81A1C6C7200551B12 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Dollar;
-			targetProxy = 820F36D71A1C6C7200551B12 /* PBXContainerItemProxy */;
-		};
 		824DFCEC1A29B8D9001002B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "LlamaKit-iOS";
