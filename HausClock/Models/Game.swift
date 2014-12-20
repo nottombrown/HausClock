@@ -32,8 +32,8 @@ class Game {
         let finishedStream = state.values().skipRepeats{ $0 == $1}.filter { $0 == Game.State.Finished }
         
         // TODO: It seems that the concatenation doesn't join correctly. Perhaps we want merge?
-        // let delayedStream = finishedStream.delay(3.0, onScheduler: MainScheduler())
-        // let doubledStream = delayedStream.concat(finishedStream)
+        let delayedStream = finishedStream.delay(3.0, onScheduler: MainScheduler())
+        let doubledStream = delayedStream.concat(finishedStream)
         finishedStream.start { _ in AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate)) }
     }
     

@@ -4,12 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="InterstateBlack.ttf">
-            <string>Interstate-Black</string>
-            <string>Interstate-Black</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -288,18 +282,18 @@
                                 <include reference="K8T-QB-ikT"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="13O-PG-UMt"/>
-                                <include reference="LPd-13-fOo"/>
-                                <include reference="cNk-JH-gAl"/>
-                                <include reference="Pff-Mk-5xE"/>
-                                <include reference="ag6-Wr-PD4"/>
-                                <include reference="VSk-aU-n3D"/>
-                                <include reference="vS8-Ns-YmC"/>
                                 <include reference="UZR-KG-Re0"/>
                                 <include reference="uOo-LF-px0"/>
                                 <include reference="0Yn-Yn-Q6N"/>
                                 <include reference="UBK-zW-FYJ"/>
                                 <include reference="UP6-4e-lbJ"/>
+                                <include reference="VSk-aU-n3D"/>
+                                <include reference="vS8-Ns-YmC"/>
+                                <include reference="13O-PG-UMt"/>
+                                <include reference="LPd-13-fOo"/>
+                                <include reference="cNk-JH-gAl"/>
+                                <include reference="Pff-Mk-5xE"/>
+                                <include reference="ag6-Wr-PD4"/>
                             </mask>
                         </variation>
                     </view>
