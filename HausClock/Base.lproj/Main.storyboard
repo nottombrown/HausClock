@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,27 +14,306 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-QQ-Z4W">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="238"/>
-                                <state key="normal" title="Top Time">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asf-yp-i81" userLabel="Pulsating Background View" customClass="PulsatingBackgroundView" customModule="HausClock" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.56862745100000001" green="0.76862745099999996" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctr-QT-iPN" userLabel="Bottom Time View" customClass="TimeView" customModule="HausClock" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NB-iw-3gC">
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="238"/>
+                                        <color key="backgroundColor" red="0.56862745100000001" green="0.76862745099999996" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchBottomButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Erf-cw-Mfo"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaE-V2-jow">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" name="Interstate-Black" family="Interstate" pointSize="103"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="0NB-iw-3gC" secondAttribute="centerY" id="9FH-PY-pZg"/>
+                                    <constraint firstAttribute="centerY" secondItem="CaE-V2-jow" secondAttribute="centerY" constant="-10" id="OQI-Aq-w0L"/>
+                                    <constraint firstItem="0NB-iw-3gC" firstAttribute="width" secondItem="Ctr-QT-iPN" secondAttribute="width" id="P9b-Qh-2hc"/>
+                                    <constraint firstAttribute="centerX" secondItem="0NB-iw-3gC" secondAttribute="centerX" id="XFa-kw-uXW"/>
+                                    <constraint firstItem="0NB-iw-3gC" firstAttribute="height" secondItem="Ctr-QT-iPN" secondAttribute="height" id="th8-Km-lMr"/>
+                                    <constraint firstAttribute="centerX" secondItem="CaE-V2-jow" secondAttribute="centerX" id="znK-Md-3Xg"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="0NB-iw-3gC"/>
+                                        <exclude reference="CaE-V2-jow"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="OQI-Aq-w0L"/>
+                                        <exclude reference="znK-Md-3Xg"/>
+                                        <exclude reference="9FH-PY-pZg"/>
+                                        <exclude reference="P9b-Qh-2hc"/>
+                                        <exclude reference="XFa-kw-uXW"/>
+                                        <exclude reference="th8-Km-lMr"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="0NB-iw-3gC"/>
+                                        <include reference="CaE-V2-jow"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="OQI-Aq-w0L"/>
+                                        <include reference="znK-Md-3Xg"/>
+                                        <include reference="9FH-PY-pZg"/>
+                                        <include reference="P9b-Qh-2hc"/>
+                                        <include reference="XFa-kw-uXW"/>
+                                        <include reference="th8-Km-lMr"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="button" destination="0NB-iw-3gC" id="xmG-7P-ep9"/>
+                                    <outlet property="label" destination="CaE-V2-jow" id="TWB-kp-19y"/>
+                                </connections>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXj-e3-wTM" userLabel="Top Time View" customClass="TimeView" customModule="HausClock" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-QQ-Z4W">
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="238"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchTopButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OxT-tH-INM"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYZ-1g-ao7">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" name="Interstate-Black" family="Interstate" pointSize="103"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="gFt-QQ-Z4W" firstAttribute="height" secondItem="YXj-e3-wTM" secondAttribute="height" id="1sQ-bq-xSZ"/>
+                                    <constraint firstAttribute="centerY" secondItem="gFt-QQ-Z4W" secondAttribute="centerY" id="6R2-Va-G6U"/>
+                                    <constraint firstAttribute="centerX" secondItem="gFt-QQ-Z4W" secondAttribute="centerX" id="FJC-hU-gc0"/>
+                                    <constraint firstAttribute="centerX" secondItem="IYZ-1g-ao7" secondAttribute="centerX" id="M2o-AD-Ys6"/>
+                                    <constraint firstAttribute="centerX" secondItem="IYZ-1g-ao7" secondAttribute="centerX" id="emE-jY-ews"/>
+                                    <constraint firstAttribute="centerY" secondItem="IYZ-1g-ao7" secondAttribute="centerY" constant="10" id="fh1-3F-f9K"/>
+                                    <constraint firstItem="gFt-QQ-Z4W" firstAttribute="width" secondItem="YXj-e3-wTM" secondAttribute="width" id="lC8-qD-gCg"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="gFt-QQ-Z4W"/>
+                                        <exclude reference="IYZ-1g-ao7"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="M2o-AD-Ys6"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="gFt-QQ-Z4W"/>
+                                        <include reference="IYZ-1g-ao7"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="M2o-AD-Ys6"/>
+                                        <include reference="emE-jY-ews"/>
+                                        <include reference="fh1-3F-f9K"/>
+                                        <include reference="1sQ-bq-xSZ"/>
+                                        <include reference="6R2-Va-G6U"/>
+                                        <include reference="FJC-hU-gc0"/>
+                                        <include reference="lC8-qD-gCg"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="button" destination="gFt-QQ-Z4W" id="mKs-Dr-i78"/>
+                                    <outlet property="label" destination="IYZ-1g-ao7" id="ekc-QT-Hk4"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zC-Qw-67g" userLabel="Pause Button" customClass="ButtonWithCustomDragBounds" customModule="HausClock" customModuleProvider="target">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" backgroundImage="pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="expandPauseButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RZR-dh-c1u"/>
+                                    <action selector="expandPauseButton:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="eqR-2l-GfF"/>
+                                    <action selector="shrinkPauseButton:" destination="vXZ-lx-hvc" eventType="touchDown" id="N6F-t0-V5a"/>
+                                    <action selector="shrinkPauseButton:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="dmT-Ax-erP"/>
+                                    <action selector="touchPauseButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wwz-lK-4A3"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3C5-JO-l0u">
-                                <rect key="frame" x="0.0" y="242" width="480" height="238"/>
-                                <state key="normal" title="Top Time">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8T-QB-ikT" customClass="PausedView" customModule="HausClock" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="big-circle-black" translatesAutoresizingMaskIntoConstraints="NO" id="mMd-Bf-8Tv">
+                                        <rect key="frame" x="0.0" y="-243" width="243" height="243"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="settings-circle" translatesAutoresizingMaskIntoConstraints="NO" id="Rux-06-Ruh">
+                                        <rect key="frame" x="0.0" y="-243" width="243" height="243"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lj6-gV-1uQ" userLabel="Resume Button">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" backgroundImage="resume">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchResumeButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LZS-gZ-V30"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0P-oJ-0SQ" userLabel="Reset Button">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="218" id="fxb-8e-WRv"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="reset">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="fxb-8e-WRv"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="touchResetButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9G9-Id-nb5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="mMd-Bf-8Tv" firstAttribute="width" secondItem="K8T-QB-ikT" secondAttribute="width" id="37O-sb-ZYg"/>
+                                    <constraint firstAttribute="centerX" secondItem="N0P-oJ-0SQ" secondAttribute="centerX" id="6sZ-2J-HEN"/>
+                                    <constraint firstAttribute="centerX" secondItem="Rux-06-Ruh" secondAttribute="centerX" id="9hc-QW-PAJ"/>
+                                    <constraint firstAttribute="centerY" secondItem="Lj6-gV-1uQ" secondAttribute="centerY" id="P3Y-B5-7TW"/>
+                                    <constraint firstAttribute="centerX" secondItem="Lj6-gV-1uQ" secondAttribute="centerX" id="YQw-c3-pKj"/>
+                                    <constraint firstAttribute="centerY" secondItem="mMd-Bf-8Tv" secondAttribute="centerY" id="bfq-6U-FLs"/>
+                                    <constraint firstItem="mMd-Bf-8Tv" firstAttribute="height" secondItem="K8T-QB-ikT" secondAttribute="height" id="hjQ-Mo-vYp"/>
+                                    <constraint firstAttribute="centerY" secondItem="Rux-06-Ruh" secondAttribute="centerY" id="osA-HH-55A"/>
+                                    <constraint firstAttribute="centerX" secondItem="mMd-Bf-8Tv" secondAttribute="centerX" id="uD6-mV-vZK"/>
+                                    <constraint firstAttribute="centerY" secondItem="N0P-oJ-0SQ" secondAttribute="centerY" constant="-70" id="w0a-zL-9nJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="mMd-Bf-8Tv"/>
+                                        <exclude reference="Rux-06-Ruh"/>
+                                        <exclude reference="Lj6-gV-1uQ"/>
+                                        <exclude reference="N0P-oJ-0SQ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="mMd-Bf-8Tv"/>
+                                        <include reference="Rux-06-Ruh"/>
+                                        <include reference="Lj6-gV-1uQ"/>
+                                        <include reference="N0P-oJ-0SQ"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="9hc-QW-PAJ"/>
+                                        <include reference="osA-HH-55A"/>
+                                        <include reference="37O-sb-ZYg"/>
+                                        <include reference="bfq-6U-FLs"/>
+                                        <include reference="hjQ-Mo-vYp"/>
+                                        <include reference="uD6-mV-vZK"/>
+                                        <include reference="P3Y-B5-7TW"/>
+                                        <include reference="YQw-c3-pKj"/>
+                                        <include reference="6sZ-2J-HEN"/>
+                                        <include reference="w0a-zL-9nJ"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Ctr-QT-iPN" secondAttribute="centerX" id="0Yn-Yn-Q6N"/>
+                            <constraint firstItem="YXj-e3-wTM" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.5" id="13O-PG-UMt"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Ctr-QT-iPN" secondAttribute="bottom" id="1iT-f6-KKB"/>
+                            <constraint firstItem="YXj-e3-wTM" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="LPd-13-fOo"/>
+                            <constraint firstItem="asf-yp-i81" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="Pff-Mk-5xE"/>
+                            <constraint firstItem="Ctr-QT-iPN" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.5" id="UBK-zW-FYJ"/>
+                            <constraint firstItem="Ctr-QT-iPN" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="UP6-4e-lbJ"/>
+                            <constraint firstAttribute="centerX" secondItem="4zC-Qw-67g" secondAttribute="centerX" id="UZR-KG-Re0"/>
+                            <constraint firstAttribute="centerY" secondItem="K8T-QB-ikT" secondAttribute="centerY" id="VSk-aU-n3D"/>
+                            <constraint firstItem="asf-yp-i81" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="ag6-Wr-PD4"/>
+                            <constraint firstAttribute="centerX" secondItem="YXj-e3-wTM" secondAttribute="centerX" id="cNk-JH-gAl">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="YXj-e3-wTM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="top" id="jWG-6l-XOP"/>
+                            <constraint firstAttribute="centerY" secondItem="4zC-Qw-67g" secondAttribute="centerY" id="uOo-LF-px0"/>
+                            <constraint firstAttribute="centerX" secondItem="K8T-QB-ikT" secondAttribute="centerX" id="vS8-Ns-YmC"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="asf-yp-i81"/>
+                                <exclude reference="Ctr-QT-iPN"/>
+                                <exclude reference="YXj-e3-wTM"/>
+                                <exclude reference="4zC-Qw-67g"/>
+                                <exclude reference="K8T-QB-ikT"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Pff-Mk-5xE"/>
+                                <exclude reference="ag6-Wr-PD4"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="asf-yp-i81"/>
+                                <include reference="Ctr-QT-iPN"/>
+                                <include reference="YXj-e3-wTM"/>
+                                <include reference="4zC-Qw-67g"/>
+                                <include reference="K8T-QB-ikT"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="UZR-KG-Re0"/>
+                                <include reference="uOo-LF-px0"/>
+                                <include reference="0Yn-Yn-Q6N"/>
+                                <include reference="UBK-zW-FYJ"/>
+                                <include reference="UP6-4e-lbJ"/>
+                                <include reference="VSk-aU-n3D"/>
+                                <include reference="vS8-Ns-YmC"/>
+                                <include reference="13O-PG-UMt"/>
+                                <include reference="LPd-13-fOo"/>
+                                <include reference="cNk-JH-gAl"/>
+                                <include reference="Pff-Mk-5xE"/>
+                                <include reference="ag6-Wr-PD4"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="bottomTimeView" destination="Ctr-QT-iPN" id="AKr-Js-6zI"/>
+                        <outlet property="pauseButton" destination="4zC-Qw-67g" id="pWw-NK-lbV"/>
+                        <outlet property="pausedView" destination="K8T-QB-ikT" id="jXz-Jn-eHF"/>
+                        <outlet property="pulsatingBackgroundView" destination="asf-yp-i81" id="mcr-6F-snH"/>
+                        <outlet property="topTimeView" destination="YXj-e3-wTM" id="oRd-uH-5Ff"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="big-circle-black" width="243" height="243"/>
+        <image name="pause" width="107" height="107"/>
+        <image name="reset" width="219" height="85"/>
+        <image name="resume" width="225" height="225"/>
+        <image name="settings-circle" width="243" height="243"/>
+    </resources>
 </document>
